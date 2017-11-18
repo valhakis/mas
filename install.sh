@@ -11,4 +11,4 @@ curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubuserconte
 # create dynamic links
 ln -s $HOME/mas/vim/init.vim $HOME/.vimrc
 ln -s $HOME/mas/home/.bashrc $HOME/.bashrc
-ln -s $HOME/mas/home/.tmux.conf $home/.tmux
+ln -s $HOME/mas/home/.tmux.conf $HOME/.tmux

@@ -254,7 +254,7 @@ function! GetTemplate()
   " set cursor 1 character backwards
   call cursor(line, col-1)
   " templates directory path
-  let path = $HOME . '/master/nvim/templates'
+  let path = $HOME . '/mas/nvim/templates'
   " current file extension
   let ext = expand('%:e')
   if ext == 'hbs'

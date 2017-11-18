@@ -14,4 +14,4 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | b
 # create dynamic links
 ln -s $HOME/mas/vim/init.vim $HOME/.vimrc
 ln -s $HOME/mas/home/.bashrc $HOME/.bashrc
-ln -s $HOME/mas/home/.tmux.conf $HOME/.tmux
+ln -s $HOME/mas/home/.tmux.conf $HOME/.tmux.conf

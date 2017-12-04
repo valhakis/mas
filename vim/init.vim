@@ -8,20 +8,32 @@ call plug#begin('~/.vim/plugged')
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  " Plug 'Shougo/neocomplete.vim'
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Shougo/neocomplete.vim'
+  " Plug 'Shougo/deoplete.nvim'
+  "Plug 'roxma/nvim-yarp'
+  "Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Haron-Prime/Antares'
 endif
+Plug 'othree/html5.vim'
 
+Plug 'ap/vim-css-color'
+"Plug 'skammer/vim-css-color'
+"Plug 'gko/vim-coloresque'
+
+"Plug 'vim-syntastic/syntastic'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'posva/vim-vue'
+Plug 'maksimr/vim-jsbeautify'
 Plug 'heavenshell/vim-jsdoc'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimshell.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-scripts/Wombat'
+" Plug 'vim-scripts/Wombat'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'moll/vim-node'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-commentary'
-Plug 'Haron-Prime/Antares'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-repeat'
 Plug 'ryanoasis/vim-devicons'
@@ -33,12 +45,11 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'wavded/vim-stylus'
 Plug 'tpope/vim-surround'
 Plug 'leafgarland/typescript-vim'
-
-let g:deoplete#enable_at_startup = 1
+Plug 'joukevandermaas/vim-ember-hbs'
+Plug 'Valloric/MatchTagAlways'
 
 
 "Plug 'airblade/vim-rooter'
-"Plug 'joukevandermaas/vim-ember-hbs'
 "Plug 'tmhedberg/matchit'
 "Plug 'alvan/vim-closetag'
 "Plug 'bling/vim-airline'
@@ -52,7 +63,6 @@ let g:deoplete#enable_at_startup = 1
 "Plug 'rschmukler/pangloss-vim-indent'
 "Plug 'mustache/vim-mustache-handlebars'
 "Plug 'evidens/vim-twig'
-"Plug 'cakebaker/scss-syntax.vim'
 "Plug 'juvenn/mustache.vim'
 "Plug 'nono/vim-handlebars'
 "Plug 'jwalton512/vim-blade'
@@ -66,7 +76,6 @@ let g:deoplete#enable_at_startup = 1
 "Plug 'easymotion/vim-easymotion'
 "Plug 'leshill/vim-json'
 "Plug 'briancollins/vim-jst'
-"Plug 'hail2u/vim-css3-syntax'
 "Plug 'Haron-Prime/Antares'
 "Plug 'scrooloose/nerdtree' 
 "Plug 'valhakis/vim' 
@@ -78,10 +87,27 @@ let g:deoplete#enable_at_startup = 1
 "Plug 'nikvdp/ejs-syntax'
 "Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 "Plug 'statianzo/vim-jade'
-"Plug 'othree/html5.vim'
 "Plug 'etnadji/vim-epub'
 "Plug 'python-mode/python-mode'
 call plug#end()
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_mode_map = { 'passive_filetypes': ['sass', 'scss'] }
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastc_scss_checkers = ['']
+let g:syntastc_sass_checkers = ['']
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#enable_smart_case = 1
+
+" let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
@@ -91,7 +117,7 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeWinSize=50
+let g:NERDTreeWinSize=40
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
@@ -104,12 +130,14 @@ set directory=~/.vim/swp/
 
 set laststatus=2
 
+set scrolloff=8
 
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-set nowrap incsearch hlsearch splitbelow mouse=n
+set nowrap incsearch hlsearch splitbelow 
 set autoindent copyindent number 
-set wildmenu relativenumber autochdir
-
+set wildmenu relativenumber 
+" set autochdir
+" set mouse=n
 " let g:airline_solarized_bg='dark'
 " let g:airline_theme='wombat'
 "hi NonText 		guifg=#808080 guibg=#303030 gui=none
@@ -122,7 +150,7 @@ set t_Co=256
 if has('nvim')
 
   set autoindent
-  colorscheme wombat
+  " colorscheme wombat
 else
   colorscheme antares
   set noesckeys
@@ -208,10 +236,13 @@ let g:user_emmet_leader_key=','
 
 au BufRead,BufNewFile *.vs,*.fs set filetype=glsl syntax=glsl
 au BufRead,BufNewFile *.mst set filetype=html syntax=mustache
+au BufRead,BufNewFile *.scss set filetype=scss.css
+autocmd FileType scss set iskeyword+=-
 
 nmap ,tg :TagbarToggle<CR>
 map <F8> :let mycurf=expand("<cfile>")<cr><c-w> w :execute("e ".mycurf)<cr><c-w>p
 nmap ,edit :tabedit ~/.vimrc <cr>
+nmap ,scripts :tabedit ~/.scripts.html <cr>
 nmap ,tg :TagbarToggle<cr>
 " nmap ,so :so ~/.vimrc <cr>
 nmap ,so :so ~/.vimrc <cr>

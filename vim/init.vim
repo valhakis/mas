@@ -91,6 +91,9 @@ Plug 'Valloric/MatchTagAlways'
 "Plug 'python-mode/python-mode'
 call plug#end()
 
+autocmd FileType vue syntax sync fromstart
+let g:vue_disable_pre_processors=1
+
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
@@ -135,7 +138,8 @@ set scrolloff=8
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set nowrap incsearch hlsearch splitbelow 
 set autoindent copyindent number 
-set wildmenu relativenumber 
+set wildmenu 
+" set relativenumber 
 " set autochdir
 " set mouse=n
 " let g:airline_solarized_bg='dark'
@@ -243,6 +247,7 @@ nmap ,tg :TagbarToggle<CR>
 map <F8> :let mycurf=expand("<cfile>")<cr><c-w> w :execute("e ".mycurf)<cr><c-w>p
 nmap ,edit :tabedit ~/.vimrc <cr>
 nmap ,scripts :tabedit ~/.scripts.html <cr>
+nmap ,si :tabedit ~/mas/vim/scripts.js <cr>
 nmap ,tg :TagbarToggle<cr>
 " nmap ,so :so ~/.vimrc <cr>
 nmap ,so :so ~/.vimrc <cr>

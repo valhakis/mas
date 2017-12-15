@@ -12,6 +12,7 @@ alias svim="sudo -E vim "
 alias so="source ~/.bashrc"
 alias tree="tree -C"
 alias so="source ~/.bashrc"
+alias cal="cal -m"
 
 function make_ps1()
 {

@@ -296,6 +296,9 @@ function! GetTemplate()
   if ext == 'hbs'
     let ext = 'html'
   endif
+  if ext == 'vue'
+    let ext = 'html'
+  endif
   " the word under cursor
   let word = expand('<cWORD>')
   " the result file

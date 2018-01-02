@@ -4,6 +4,7 @@
 int main() 
 {
 
+  int open = 1;
   FIELD *field[3];
   FORM *my_form;
   int ch;
@@ -15,8 +16,8 @@ int main()
   keypad(stdscr, TRUE);
 
   /* initialize the field */
-  field[0] = new_field(1, 10, 4, 18, 0, 0);
-  field[1] = new_field(1, 10, 6, 18, 0, 0);
+  field[0] = new_field(1, 40, 4, 18, 0, 0);
+  field[1] = new_field(1, 40, 6, 18, 0, 0);
   field[2] = NULL;
 
   /* set field options */
@@ -38,6 +39,7 @@ int main()
   /* loop through to get user request */
   while((ch = getch()) != KEY_F(1)) 
   {
+    if (ch == 27) break;
     switch(ch) 
     {
       case KEY_DOWN:
@@ -52,10 +54,21 @@ int main()
         form_driver(my_form, REQ_PREV_FIELD);
         form_driver(my_form, REQ_END_LINE);
         break;
-      case KEY_BACKSPACE:
+      case 127:
+        form_driver(my_form, REQ_DEL_CHAR);
+        form_driver(my_form, REQ_DEL_PREV);
+        break;
+      case 10:
+        /* if this is a normal chatecter, it gets printed */
+        mvprintw(11, 11, "ENTER");
+        form_driver(my_form, ch);
+        form_driver(my_form, REQ_NEXT_FIELD);
+        form_driver(my_form, REQ_END_LINE);
         break;
       default:
         /* if this is a normal chatecter, it gets printed */
+        mvprintw(10, 10, "                               ");
+        mvprintw(10, 10, "key %d", ch);
         form_driver(my_form, ch);
         break;
     }

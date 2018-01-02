@@ -16,25 +16,39 @@ alias cal="cal -m"
 
 function make_ps1()
 {
-  local reset="\e[0m"
-  local black="\e[90m"
-  local red="\e[91m"
-  local yellow0="\e[92m"
-  local yellow1="\e[93m"
-  local blue="\e[94m"
-  local purple="\e[95m"
-  local cyan="\e[96m"
-  local white="\e[97m"
+  # local reset="\e[0m"
+  # local blue="\e[94m"
+  # local white="\e[97m"
+  # local black="\e[90m"
+  # local red="\e[91m"
+  # local yellow0="\e[92m"
+  # local yellow1="\e[93m"
+
+  local reset="\[\033[0m\]"
+  local black="\[\033[01;5;90m\]"
+  local red="\[\033[01;5;91m\]"
+  local green="\[\033[01;5;92m\]"
+  local yellow="\[\033[01;5;93m\]"
+  local blue="\[\033[01;5;94m\]"
+  local purple="\[\033[01;95m\]"
+  local white="\[\033[01;5;00m\]"
+
+  # color=90
+  # while [ $color -lt 97 ] ; do
+  #   echo -e "$color: \\033[01;5;${color}mhello\\033[48;5;${color}mworld\\033[0m";
+  #   ((color++));
+  # done
 
   local UNAME="${blue}\u${reset}"
-  local HOST="${yellow1}\h${reset}"
+  local HOST="${yellow}\h${reset}"
   local CDIR="${red}\W${reset}"
-  local PATH="${yellow1}\w${reset}"
-  export PS1="${yellow1}[${reset} ${UNAME}@${HOST} | ${PATH} ${yellow1}]${reset}\n> ${reset}"
+  local PATH="${purple}\w${reset}"
+  export PS1="${black}[${reset} ${UNAME}@${HOST} | ${PATH} ${black}]${reset}\n> ${reset}"
 }
 make_ps1
 
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PATH="$HOME/app/bin:$PATH"
 # export PATH=$PATH:"$HOME/include"
 # export C_INCLUDE_PATH=$C_INCLUDE_PATH:"$HOME/include"
 # export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:"$HOME/include"

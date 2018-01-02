@@ -1,7 +1,26 @@
 // <script src="/node_modules/vue/dist/vue.js"></script>
 // <script src="/node_modules/axios/dist/axios.js"></script>
 // <script src="/node_modules/vue-router/dist/vue-router.js"></script>
-//
+// <script src="/node_modules/moment/moment.js"></script>
+// <script src="/node_modules/moment/locale/et.js"></script>
+// <meta name="viewport" content="width=device-width, initial-scale=1">
+var colors = [
+  { hex: '#77B28C' },
+  { hex: '#499F68' },
+  { hex: '#B4654A' },
+  { hex: '#54494B' },
+  { hex: '#A7D49B' },
+  { hex: '#E3C567' },
+  { hex: '#D9AE61' },
+  { hex: '#D1462F' },
+  { hex: '#8CD867' },
+  { hex: '#363537' },
+  { hex: '#2FBF71' },
+  { hex: '#EFEA5A' },
+  { hex: '#048BA8' },
+  { hex: '#188FA7' },
+  { hex: '#F0CF65' },
+];
 /* ========================================================= */
 /* bodyParser */
 /* ========================================================= */
@@ -30,10 +49,13 @@ var app = new Vue({
 /* VUE ROUTER */
 /* ========================================================= */
 
-var options = {
+var router = new VueRouter({
   linkActiveClass: 'active',
-  linkExactActiveClass: 'active'
-}
+  linkExactActiveClass: 'active',
+  routes: [
+    { path: '/', component: Home }
+  ]
+});
 
 /* ========================================================= */
 /* WEBPACK */

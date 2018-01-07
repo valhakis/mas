@@ -1,0 +1,143 @@
+# ==============================================================
+# POSTFIX
+# ==============================================================
+# HOW TO SEND / RECEIVE EMAILS
+smtp / email server
+communicate with other mail servers, deliver email
+
+what is cyrus cyrus-ssl ?
+
+# master.cf
+# ------------------------------------
+/etc/postfix/main.cf
+# sasl
+  -o syslog_name=postfix/submission
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_reject_unlisted_recipient=no
+  -o smtpd_recipient_restrictions=permit_sasl_authenticated,reject
+  -o milter_macro_daemon_name=ORIGINATING
+
+
+# main.cf
+# ------------------------------------
+/etc/postfix/main.cf
+
+myhostname = mail.motizium.com
+mydomain = motizium.com
+myorigin = $mydomain
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+mynetworks_style = host
+relay_domains = 
+mail_spool_directory = /var/vmailer
+# relative to user's home directory
+#home_mailbox = Maildir/
+home_mailbox = Maildir/
+mailbox_size_limit = 51200000
+message_size_limit = 10240000
+inet_interfaces = all
+inet_protocols = all
+mynetworks = 168.100.0.0/24, 127.0.0.0/8
+
+# ssl
+smtp_sasl_auth_enable = yes
+smtp_recipient_restrictions = permit_mynetworks permit_sasl_authenticated reject_unauth_destination
+smtpd_sasl_application_name = smptpd
+smtpd_sasl_security_options = noanonymous
+
+# aliases
+# ------------------------------------
+/etc/postfix/aliases
+# update aliases
+postalias /etc/postfix/aliases
+newaliases
+
+# receives root email
+# ------------------------------------
+root:		ruudi
+
+# agent / client
+# ------------------------------------
+gmail thunderbird
+
+# sasl
+# ------------------------------------
+/etc/conf.d/saslauthd [default]
+/etc/sasl2/smtpd.conf [recommended]
+
+pwcheck_method: saslauthd
+mech_list: PLAIN LOGIN
+log_level: 7
+
+# start / restart
+# ------------------------------------
+sudo systemctl restart postfix
+sudo systemctl restart saslauthd
+
+# check working
+# ------------------------------------
+px aux | grep postfix
+px aux | grep sasl
+
+# test it
+# ------------------------------------
+telnet localhost 25
+
+ehlo localhost
+
+# courier
+# ------------------------------------
+http://www.courier-mta.org/download.html
+
+1. [courier authentication library]
+https://sourceforge.net/projects/courier/files/authlib/0.68.0/courier-authlib-0.68.0.tar.bz2
+2. [courier unicode library]
+https://sourceforge.net/projects/courier/files/courier-unicode/2.0/courier-unicode-2.0.tar.bz2
+3. [courier IMAP]
+https://sourceforge.net/projects/courier/files/imap/4.18.2/courier-imap-4.18.2.tar.bz2
+
+unpack with
+tar jxvf [package]
+
+install with
+./configure
+make
+make install
+make install-configure
+
+4. authdaemond start
+
+5. cd /usr/lib/courier-imap/libexec
+./pop3d.rc start
+
+6. check
+ss -antlup | grep 110
+
+7. test
+telnet localhost 110
+user rudi
+pass 
+
+# ==============================================================
+# SCREEN
+# ==============================================================
+
+# .screenrc
+# ------------------------------------
+~/.screenrc
+
+# remap CTRL-a
+# default
+escape ^Aa 
+# CTRL-j
+escape ^Jj
+
+# ==============================================================
+# ARCH MAIL SERVER
+# ==============================================================
+useradd -m woxim
+usermod -a -G wheel,users,nobody,mail woxim
+
+pacman -S python
+
+pacman -S postfix devcot spamassassin procmail

@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'airblade/vim-rooter'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'tpope/vim-surround'
 Plug 'posva/vim-vue'
@@ -41,6 +42,9 @@ nmap ,so :so ~/.vimrc <cr>
 nmap ,edit :tabedit ~/.vimrc <cr>
 nmap ,scripts :tabedit ~/.scripts.html <cr>
 nmap ,cssref :tabedit ~/mas/vim/ref/reference.css <cr>
+nmap ,noderef :tabedit ~/mas/vim/ref/node.reference.js <cr>
+nmap ,ref :tabedit ~/mas/vim/ref/all.reference.js <cr>
+nmap ,archref :tabedit ~/mas/vim/ref/reference.cf <cr>
 nmap ,jsref :tabedit ~/mas/vim/ref/reference.js <cr>
 nmap ,htmlref :tabedit ~/mas/vim/ref/reference.html <cr>
 nmap ,cref :tabedit ~/mas/vim/ref/reference.c <cr>
@@ -53,6 +57,8 @@ nmap ,install :w <bar> PlugInstall <cr>
 imap ,l <c-r>=GetTemplate() <cr><esc>
 nmap ,al :e # <cr>
 
+let g:rooter_targets = '/,*'
+let g:rooter_change_directory_for_non_project_files = 'current'
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeWinSize=40
@@ -130,3 +136,8 @@ function! GetTemplate()
   endif
   return ''
 endfunction
+
+" IDENTIFY HIGHLIGHT GROUP F10
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

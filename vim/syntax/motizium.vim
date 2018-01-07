@@ -239,7 +239,7 @@ if exists("c_gnu")
   syn keyword	cStatement	__asm__
   syn keyword	cOperator	typeof __real__ __imag__
 endif
-syn keyword	cType		int long short char void
+syn keyword	cType		int long short char void function
 syn keyword	cType		signed unsigned float double
 syn keyword	cType		uint Window Display XEvent
 syn keyword	cType		Colormap XVisualInfo XSetWindowAttributes
@@ -420,6 +420,10 @@ if exists("c_curly_error")
 else
   exec "syn sync ccomment cComment minlines=" . b:c_minlines
 endif
+
+syn keyword	cCppString	done DONE
+syn keyword	cFormat		  fail FAIL 
+syn keyword	Search		  fail FAIL 
 
 " Define the default highlighting.
 " Only used when an item doesn't have highlighting yet

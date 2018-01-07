@@ -68,3 +68,29 @@ import 'fullcalendar/dist/fullcalendar.min.css';
 // <script src="/node_modules/prismjs/prism.js" data-manual></script>
 var Prism = require('prismjs');
 Prism.highlight(code, Prism.languages.javascript)
+
+/* ======================================================== */
+/* ROLLUP */
+/* ======================================================== */
+// npm install --save rollup-plugin-babel
+// npm install --save babel-preset-es2015-rollup
+// npm install --save rollup-plugin-babel
+// npm install --save babel-preset-es2015-rollup
+
+import babel from 'rollup-plugin-babel';
+
+export default {
+  input: './src/index.js',
+  output: {
+    file: './dist/bundle.js',
+    format: 'iife'
+  },
+  plugins: [
+    babel({
+      exclude: 'node_modules/**'
+    })
+  ]
+};
+/* ======================================================== */
+/* WEBPACK */
+/* ======================================================== */

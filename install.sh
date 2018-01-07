@@ -23,5 +23,8 @@ printf "\n"
 # create dynamic links
 ln -s $HOME/mas/vim/init.vim $HOME/.vimrc
 ln -s $HOME/mas/home/.bashrc $HOME/.bashrc
+ln -s $HOME/mas/home/.screenrc $HOME/.screenrc
 ln -s $HOME/mas/home/.tmux.conf $HOME/.tmux.conf
 ln -s $HOME/mas/vim/syntax/c.vim $HOME/.vim/syntax/c.vim
+ln -s $HOME/mas/vim/syntax/motizium.vim $HOME/.vim/syntax/motizium.vim
+ln -s $HOME/mas/vim/filetype.vim $HOME/.vim/filetype.vim

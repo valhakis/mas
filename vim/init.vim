@@ -43,6 +43,7 @@ nmap ,edit :tabedit ~/.vimrc <cr>
 nmap ,scripts :tabedit ~/.scripts.html <cr>
 nmap ,cssref :tabedit ~/mas/vim/ref/reference.css <cr>
 nmap ,noderef :tabedit ~/mas/vim/ref/node.reference.js <cr>
+nmap ,phpref :tabedit ~/mas/vim/ref/reference.php <cr>
 nmap ,ref :tabedit ~/mas/vim/ref/all.reference.js <cr>
 nmap ,archref :tabedit ~/mas/vim/ref/reference.cf <cr>
 nmap ,jsref :tabedit ~/mas/vim/ref/reference.js <cr>

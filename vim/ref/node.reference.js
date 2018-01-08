@@ -1,7 +1,9 @@
+/* ================================================================= */
 /* NODE REFERENCE */
 /* ================================================================= */
 
-/* HTTP */
+/* ================================================================= */
+/* SECTION: HTTP */
 /* ================================================================= */
 var server = http.createServer(app);
 
@@ -9,14 +11,16 @@ server.listen(port, host, function() {
 
 });
 
-/* EXPRERSS APP */
+/* ================================================================= */
+/* SECTION: EXPRERSS APP */
 /* ================================================================= */
 var app = express();
 
 app.get('/', function(req, res) {
 });
 
-/* HTTP SERVER */
+/* ================================================================= */
+/* SECTION: HTTP SERVER */
 /* ================================================================= */
 var { EventEmitter } = require('events');
 
@@ -76,3 +80,49 @@ var app = function(req, res) {
     });
   });
 };
+
+/* ================================================================= */
+/* SECTION: BROWSER-SYNC */
+/* ================================================================= */
+
+var bs = require("browser-sync").create();
+
+bx.init({
+
+});
+
+/* SECTION: WEBPACK */
+/* ================================================================= */
+const webpack = require('webpack');
+
+var config = {
+
+};
+
+var config = [
+  { /* webpack configuration one */ },
+  { /* webpack configuration two */ },
+  { /* webpack configuration three */ },
+];
+
+webpack(config, function(err, stats) {
+  if (err || stats.hasErrors()) {
+    console.log('ERROR OCCURRED');
+  }
+});
+
+/* compiler */
+const compiler = webpack(config);
+
+/* watcher */
+const watcher = compiler.watch({
+
+}, function(err, stats) {
+  console.log(stats.toString({
+    colors: true,
+  }));
+});
+
+/* ================================================================= */
+/* SECTION: PASSPORT */
+/* ================================================================= */

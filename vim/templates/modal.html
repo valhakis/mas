@@ -1,0 +1,28 @@
+<div class="motizium-modal">
+  <button class="open" v-on:click="open">CREATE TUTORIAL</button>
+  <div class="modal closed" ref="modal">
+    <div class="container">
+
+      <button class="close" v-on:click="close">X</button>
+
+      <div class="heading">
+        Add New Tutorial
+      </div>
+
+      <form class="motizium-form" v-on:submit.prevent="submit">
+        <div class="group heading">
+          Add New Tutorial
+        </div>
+        <div class="group">
+          <label>name</label>
+          <input type="text" name="name" v-model="tutorial.name" placeholder="Place tutorial name here..." autofocus>
+        </div>
+        <div class="group">
+          <button type="submit">Add</button>
+          <button class="red" type="button" v-on:click="close">Cancel</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

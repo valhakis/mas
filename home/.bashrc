@@ -25,21 +25,22 @@ function make_ps1()
   # local yellow1="\e[93m"
 
   local reset="\[\033[0m\]"
-  local black="\[\033[01;5;90m\]"
-  local red="\[\033[01;5;91m\]"
-  local green="\[\033[01;5;92m\]"
-  local yellow="\[\033[01;5;93m\]"
-  local blue="\[\033[01;5;94m\]"
-  local purple="\[\033[01;95m\]"
-  local white="\[\033[01;5;00m\]"
+  local black="\[\033[01;0;90m\]"
+  local red="\[\033[01;0;91m\]"
+  local green="\[\033[01;0;92m\]"
+  local yellow="\[\033[01;0;93m\]"
+  local blue="\[\033[01;0;94m\]"
+  local purple="\[\033[01;0;95m\]"
+  local white="\[\033[01;0;00m\]"
+  local lightblue="\[\033[01;0;96m\]"
 
-  # color=90
-  # while [ $color -lt 97 ] ; do
-  #   echo -e "$color: \\033[01;5;${color}mhello\\033[48;5;${color}mworld\\033[0m";
+  # color=80
+  # while [ $color -lt 100 ] ; do
+  #   echo -e "$color: \\033[01;0;${color}mhello\\033[48;5;${color}mworld\\033[0m";
   #   ((color++));
   # done
 
-  local UNAME="${blue}\u${reset}"
+  local UNAME="${red}\u${reset}"
   local HOST="${yellow}\h${reset}"
   local CDIR="${red}\W${reset}"
   local PATH="${purple}\w${reset}"
@@ -49,6 +50,7 @@ make_ps1
 
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export PATH="$HOME/app/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 # export PATH=$PATH:"$HOME/include"
 # export C_INCLUDE_PATH=$C_INCLUDE_PATH:"$HOME/include"
 # export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:"$HOME/include"
@@ -63,3 +65,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # export FZF_DEFAULT_COMMAND='ag -l -g ""'
 # export TERM="xterm-color"
+
+LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS

@@ -57,6 +57,8 @@ nmap ,nf :NERDTreeFind <cr>
 nmap ,install :w <bar> PlugInstall <cr>
 imap ,l <c-r>=GetTemplate() <cr><esc>
 nmap ,al :e # <cr>
+nmap ,script :tabedit ~/mas/script.sh <cr>
+nmap ,rs :!~/mas/script.sh <cr>
 
 let g:rooter_targets = '/,*'
 let g:rooter_change_directory_for_non_project_files = 'current'

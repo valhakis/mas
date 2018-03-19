@@ -23,6 +23,7 @@ Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-repeat'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'ryanoasis/vim-devicons'
+Plug 'evidens/vim-twig'
 Plug 'Yggdroot/indentLine'
 call plug#end()
 

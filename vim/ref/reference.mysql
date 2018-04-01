@@ -1,0 +1,69 @@
+/* section MYSQL */
+
+/* 1. create / visualise what you want to store, model out how data should look */
+/* 2. break it down to tables */
+
+/* create database */
+CREATE DATABASE demo;
+
+/* use database */
+USE demo;
+
+/* drop database */
+DROP DATABASE demo;
+
+/* drop database only if it exists */
+DROP DATABASE IF EXISTS demo;
+
+CREATE TABLE student (
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  email VARCHAR(60) NULL,
+  street VARCHAR(40) NOT NULL,
+  state CHAR(2) NOT NULL DEFAULT "PA",
+  zip MEDIUMINT UNSIGNED NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  birth_date DATE NOT NULL,
+  sex ENUM('M', 'F') NOT NULL,
+  date_entered TIMESTAMP,
+  last_cost FLOAT NULL,
+  student_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
+);
+
+/* TINYINT: (+-) 127 */
+/* TINYINT: (+-) 32,767 */
+/* MEDIUM INT: (+-) 8,388,608 */
+/* INT (+-) 2^31-1 */
+
+/* BIG INT (+-) 2^63-1 */
+/* FLOAT: (+-) 1.1E38 */
+/* DOUBLE: (+-) 1.7E308 */
+
+/* CHAR: fixed length */
+/* VARCHAR: length length thats variable */
+/* BLOB: 2^16 bytes of data */
+
+/* ENUM: limited total number of values, must define */
+/* SET: list of legal possible character string, CAN CONTAIN MULTIPLE */
+
+/* DATE: YYYY-MM-DD */
+/* TIME: HH:MM:SS */
+/* DATETIME: YYYY-MM-DD HH:MM:SS */
+/* TIMESTAMP: YYYYMMDDHHMMSS */
+/* YEAR: YYYY */
+
+/* insert student */
+INSERT INTO student VALUES (
+  'Dale'
+  'cooper',
+  'dcooper@email.com',
+  '123 Street',
+  'WA',
+  92525,
+  '444-444-555',
+  '1993-3-3',
+  'M',
+  NOW(),
+  3.50,
+  NULL
+);

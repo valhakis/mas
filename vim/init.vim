@@ -1,13 +1,18 @@
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'airblade/vim-rooter'
+Plug 'digitaltoad/vim-pug'
+Plug 'ap/vim-css-color'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'moll/vim-node' 
 Plug 'tpope/vim-surround'
 Plug 'posva/vim-vue'
 Plug 'tpope/vim-commentary'
+Plug 'yegappan/mru'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tikhomirov/vim-glsl'
 Plug 'scrooloose/nerdtree' 
 Plug 'Haron-Prime/Antares'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -16,6 +21,7 @@ Plug 'othree/html5.vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-repeat'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 call plug#end()
@@ -29,6 +35,7 @@ set nocompatible
 set nowrap
 set encoding=utf8
 set backupdir=~/.vim/backup/
+"set guifont=CourierPrimeCode-Regular\ Nerd\ Font\ 10
 set directory=~/.vim/swp/
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set nowrap incsearch hlsearch splitbelow 
@@ -37,11 +44,19 @@ set wildmenu
 set nonumber
 set noesckeys
 set foldmethod=indent
+set laststatus=2
+set mouse=n
+set showcmd
+set path+=~/motizium/include/linmath.h
+" set wildignore+=node_modules/**
 
 nmap ,so :so ~/.vimrc <cr>
 nmap ,edit :tabedit ~/.vimrc <cr>
 nmap ,scripts :tabedit ~/.scripts.html <cr>
 nmap ,cssref :tabedit ~/mas/vim/ref/reference.css <cr>
+nmap ,cn :cn <cr>
+nmap ,bashref :tabedit ~/mas/vim/ref/reference.sh <cr>
+nmap ,mysqlref :tabedit ~/mas/vim/ref/reference.mysql <cr>
 nmap ,noderef :tabedit ~/mas/vim/ref/node.reference.js <cr>
 nmap ,phpref :tabedit ~/mas/vim/ref/reference.php <cr>
 nmap ,ref :tabedit ~/mas/vim/ref/all.reference.js <cr>
@@ -51,7 +66,10 @@ nmap ,htmlref :tabedit ~/mas/vim/ref/reference.html <cr>
 nmap ,cref :tabedit ~/mas/vim/ref/reference.c <cr>
 nmap ,vref :tabedit ~/mas/vim/ref/reference.vim <cr>
 nmap ,si :tabedit ~/mas/vim/scripts.js <cr>
+nmap ,re :tabedit +1buf <cr>
 nmap \mr :w <bar> !./start.sh <cr>
+nmap \rt :w <bar> !./% <cr>
+nmap ,mru :MRU <cr>
 nmap ,ne :NERDTreeSteppedOpen <cr>
 nmap ,nf :NERDTreeFind <cr>
 nmap ,install :w <bar> PlugInstall <cr>
@@ -59,7 +77,10 @@ imap ,l <c-r>=GetTemplate() <cr><esc>
 nmap ,al :e # <cr>
 nmap ,script :tabedit ~/mas/script.sh <cr>
 nmap ,rs :!~/mas/script.sh <cr>
+nmap ,p :CtrlPLine <cr>
+nmap ,b :call HtmlBeautify() <cr>
 
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:rooter_targets = '/,*'
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -94,6 +115,7 @@ au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType python setlocal omnifunc=pythoncomplete#Complete
 au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+au! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 hi Search ctermfg=red ctermbg=none guibg=NONE guifg=yellow
 hi IncSearch ctermbg=yellow ctermfg=black
@@ -144,3 +166,17 @@ endfunction
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" TRANSLATE WORD UNDER CURSOR
+function! TranslateWordUnderCursor()
+  " get the current line number
+  let line = line('.')
+  " get the current column number
+  let col = col('.')
+  " set cursor 1 character backwards
+  call cursor(line, col-1)
+  " the word under cursor
+  let word = expand('<cWORD>')
+  execute '!' . 'trans :et ' . word
+endfunction
+nmap ,t :call TranslateWordUnderCursor() <cr>

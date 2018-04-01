@@ -132,3 +132,11 @@ var postSchema = new Schema({
 
 // post model
 var Post = module.exports = mongoose.model('Post', postSchema);
+
+/* simditor */
+import 'simditor/styles/simditor.css';
+import $ from 'jquery';
+import 'simple-module/lib/module.js';
+import 'simple-hotkeys/lib/hotkeys.js';
+import 'simple-uploader/lib/uploader.js';
+import Simditor from 'simditor';

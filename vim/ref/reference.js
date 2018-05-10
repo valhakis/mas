@@ -249,3 +249,39 @@ if ($preview.length > 0) {
   });
 }
 
+/* mem */
+new Date();
+el.innerHTML;
+el.style.fontSize = '14px';
+el.style.display = 'none';
+onclick="example()"
+document.write('LOREM TEXT');
+window.alert('LOREM TEXT');
+console.log('LOREM TEXT');
+instanceof
+typeof
+new String(), new Number(), new Boolean();
+
+onchange, onclick, onmouseover, onmouseout, onkeydown, onload
+
+/* lite-server / bs-config */
+module.exports = {
+  server: {
+    files: ['./*.{html,js,scss}'],
+    baseDir: {
+      './'
+    },
+    middleware: {
+      // overrides the second middleware default with new settings
+      1: require('connect-history-api-fallback')({index: '/index.html', verbose: true})
+    }
+  }
+};
+
+/* dotenv */
+
+var dotenv = require('dotenv');
+
+dotenv.config();
+
+dotenv.config({ path: '/full/path' });

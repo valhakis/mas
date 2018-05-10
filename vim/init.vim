@@ -2,12 +2,19 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'airblade/vim-rooter'
 Plug 'digitaltoad/vim-pug'
+Plug 'posva/vim-vue'
 Plug 'ap/vim-css-color'
+Plug 'Matt-Deacalion/vim-systemd-syntax'
+Plug 'jwalton512/vim-blade'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'moll/vim-node' 
 Plug 'tpope/vim-surround'
 Plug 'posva/vim-vue'
+"Plug 'rhysd/vim-gfm-syntax'
+Plug 'plasticboy/vim-markdown'
+Plug 'noahfrederick/vim-laravel'
 Plug 'tpope/vim-commentary'
+Plug 'cakebaker/scss-syntax.vim'
 Plug 'yegappan/mru'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
@@ -42,6 +49,7 @@ set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set nowrap incsearch hlsearch splitbelow 
 set autoindent copyindent 
 set wildmenu 
+set relativenumber
 set nonumber
 set noesckeys
 set foldmethod=indent
@@ -79,7 +87,9 @@ nmap ,al :e # <cr>
 nmap ,p :CtrlPLine <cr>
 nmap ,b :call HtmlBeautify() <cr>
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+"let g:markdown_fenced_languages = ['cpp', 'ruby', 'json', 'javascript', 'c', 'sh', 'php', 'mysql', 'html', 'scss']
+let g:table_mode_corner='|'
+let g:ctrlp_custom_ignore = 'vendor\|node_modules\|DS_Store\|git'
 let g:rooter_targets = '/,*'
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -93,7 +103,7 @@ let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_unite = 1
 let g:webdevicons_enable_vimfiler = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:user_emmet_leader_key=','
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"

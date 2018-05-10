@@ -48,7 +48,9 @@ function make_ps1()
 }
 make_ps1
 
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+# export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export GEM_HOME=$HOME/.gem
 export PATH="$HOME/app/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 # export PATH=$PATH:"$HOME/include"
@@ -67,3 +69,4 @@ export NVM_DIR="$HOME/.nvm"
 # export TERM="xterm-color"
 
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"

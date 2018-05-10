@@ -84,6 +84,8 @@ nmap ,nf :NERDTreeFind <cr>
 nmap ,install :w <bar> PlugInstall <cr>
 imap ,l <c-r>=GetTemplate() <cr><esc>
 nmap ,al :e # <cr>
+nmap ,script :tabedit ~/mas/script.sh <cr>
+nmap ,rs :!~/mas/script.sh <cr>
 nmap ,p :CtrlPLine <cr>
 nmap ,b :call HtmlBeautify() <cr>
 

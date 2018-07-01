@@ -6,6 +6,7 @@ Plug 'posva/vim-vue'
 Plug 'ap/vim-css-color'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'jwalton512/vim-blade'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'moll/vim-node' 
 Plug 'tpope/vim-surround'
@@ -14,6 +15,7 @@ Plug 'posva/vim-vue'
 Plug 'plasticboy/vim-markdown'
 Plug 'noahfrederick/vim-laravel'
 Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdcommenter'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'yegappan/mru'
 Plug 'pangloss/vim-javascript'
@@ -25,6 +27,7 @@ Plug 'Haron-Prime/Antares'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'othree/html5.vim'
+Plug 'elzr/vim-json'
 Plug 'Shougo/neocomplete.vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-repeat'
@@ -32,6 +35,10 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'ryanoasis/vim-devicons'
 Plug 'evidens/vim-twig'
 Plug 'Yggdroot/indentLine'
+Plug 'dsawardekar/wordpress.vim'
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'SirVer/ultisnips'
+Plug 'StanAngeloff/php.vim'
 call plug#end()
 
 syntax on
@@ -72,6 +79,7 @@ nmap ,ref :tabedit ~/mas/vim/ref/all.reference.js <cr>
 nmap ,archref :tabedit ~/mas/vim/ref/reference.cf <cr>
 nmap ,jsref :tabedit ~/mas/vim/ref/reference.js <cr>
 nmap ,htmlref :tabedit ~/mas/vim/ref/reference.html <cr>
+nmap ,read :tabedit ~/mas/vim/ref/readme.md <cr>
 nmap ,cref :tabedit ~/mas/vim/ref/reference.c <cr>
 nmap ,vref :tabedit ~/mas/vim/ref/reference.vim <cr>
 nmap ,si :tabedit ~/mas/vim/scripts.js <cr>
@@ -90,6 +98,11 @@ nmap ,p :CtrlPLine <cr>
 nmap ,b :call HtmlBeautify() <cr>
 
 "let g:markdown_fenced_languages = ['cpp', 'ruby', 'json', 'javascript', 'c', 'sh', 'php', 'mysql', 'html', 'scss']
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_override_foldtext = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_json_syntax_conceal = 0
 let g:table_mode_corner='|'
 let g:ctrlp_custom_ignore = 'vendor\|node_modules\|DS_Store\|git'
 let g:rooter_targets = '/,*'
@@ -120,6 +133,7 @@ endif
 
 au FileType vue syntax sync fromstart
 au BufRead,BufNewFile *.scss set filetype=scss.css
+au BufRead,BufNewFile boxec.conf set filetype=config
 au FileType scss set iskeyword+=-
 au FileType css setlocal omnifunc=csscomplete#CompleteCSS
 au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags

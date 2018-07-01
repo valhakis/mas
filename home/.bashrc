@@ -1,6 +1,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 export TERM="xterm-256color"
+export TERM="tmux-256color"
 force_color_prompt=yes
 
 #alias ls="ls --color "

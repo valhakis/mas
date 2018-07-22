@@ -67,3 +67,6 @@ export NVM_DIR="$HOME/.nvm"
 # export TERM="xterm-color"
 
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+
+export MAIL=~/Maildir
+#export MAIL=/var/spool/mail/ruudi

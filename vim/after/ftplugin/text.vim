@@ -23,7 +23,7 @@ function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
   \ contains=@'.group
 endfunction
 
-call TextEnableCodeSnip(  'c',   '@begin=c@',   '@end=c@', 'SpecialComment')
-call TextEnableCodeSnip('cpp', '@begin=cpp@', '@end=cpp@', 'SpecialComment')
-call TextEnableCodeSnip('sql', '@begin=sql@', '@end=sql@', 'SpecialComment')
-call TextEnableCodeSnip('javascript', '@begin=javascript@', '@end=javascript@', 'SpecialComment')
+"call TextEnableCodeSnip(  'c',   '@begin=c@',   '@end=c@', 'SpecialComment')
+"call TextEnableCodeSnip('cpp', '@begin=cpp@', '@end=cpp@', 'SpecialComment')
+"call TextEnableCodeSnip('sql', '@begin=sql@', '@end=sql@', 'SpecialComment')
+"call TextEnableCodeSnip('javascript', '@begin=javascript@', '@end=javascript@', 'SpecialComment')

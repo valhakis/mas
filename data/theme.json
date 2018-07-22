@@ -1,0 +1,22 @@
+{
+  "__comment": "All languages supportes on highlight.js",
+  "__comment": "https://github.com/chalk/chalk#styles",
+  "__comment": "Highlight.js class names",
+  "__comment_keyword": "blue",
+  "__comment_built_in": ["cyan", "dim"],
+  "string": "yellowBright",
+  "keyword": "red",
+  "variable": "red",
+  "type": "red",
+  "literal": "green",
+  "built_in": "red",
+  "number": "greenBright",
+  "attr": ["red", "bold"],
+  "regexp": "magenta",
+  "subst": ["red", "visible"],
+  "symbol": "magenta",
+  "class": "magenta",
+  "function": "magenta",
+  "title": "magenta",
+  "params": "magenta"
+}

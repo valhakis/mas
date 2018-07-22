@@ -1,6 +1,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 export TERM="xterm-256color"
+export TERM="tmux-256color"
 force_color_prompt=yes
 
 #alias ls="ls --color "
@@ -48,7 +49,9 @@ function make_ps1()
 }
 make_ps1
 
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+# export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export GEM_HOME=$HOME/.gem
 export PATH="$HOME/app/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 # export PATH=$PATH:"$HOME/include"
@@ -70,3 +73,4 @@ LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
 export MAIL=~/Maildir
 #export MAIL=/var/spool/mail/ruudi
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"

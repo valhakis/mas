@@ -349,3 +349,10 @@ var uniqueFile = uniqueFilename('/tmp', 'testing', '/what/the/hell');
 /*--\--------------------------------------------------------------------/  */
 var beautifier = require('js-beautify');
 beautifier.html_beautify(data, {});
+
+/* handlebars */
+// npm install express-handlebars
+var expressHandlebars  = require('express-handlebars');
+app.engine('.hbs', expressHandlebars({extname: '.hbs'}));
+app.set('view engine', '.hbs');
+

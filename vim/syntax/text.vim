@@ -1,3 +1,12 @@
+"syntax on
+"syntax include @JAVASCRIPT syntax/javascript.vim
+"syntax include @CPP syntax/cpp.vim
+
+"syntax region javascriptSnip matchgroup=Snip1 start="@begin=javascript@" end="@end=javascript@" contains=@JAVASCRIPT
+"syntax region cppSnip matchgroup=Snip2 start="@begin=cpp@" end="@end=cpp@" contains=@CPP
+
+"hi link Snip SpecialComment
+
 function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
   let ft=toupper(a:filetype)
   let group='textGroup'.ft
@@ -23,7 +32,7 @@ function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
   \ contains=@'.group
 endfunction
 
-call TextEnableCodeSnip(  'c',   '@begin=c@',   '@end=c@', 'SpecialComment')
-call TextEnableCodeSnip('cpp', '@begin=cpp@', '@end=cpp@', 'SpecialComment')
-call TextEnableCodeSnip('sql', '@begin=sql@', '@end=sql@', 'SpecialComment')
-call TextEnableCodeSnip('javascript', '@begin=javascript@', '@end=javascript@', 'SpecialComment')
+"call TextEnableCodeSnip(  'c',   '@begin=c@',   '@end=c@', 'SpecialComment')
+"call TextEnableCodeSnip('cpp', '@begin=cpp@', '@end=cpp@', 'SpecialComment')
+"call TextEnableCodeSnip('sql', '@begin=sql@', '@end=sql@', 'SpecialComment')
+"call TextEnableCodeSnip('javascript', '@begin=javascript@', '@end=javascript@', 'SpecialComment')

@@ -71,3 +71,4 @@ export NVM_DIR="$HOME/.nvm"
 
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+# export XDG_CONFIG_HOME="$HOME/.config"

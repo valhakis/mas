@@ -35,10 +35,10 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'ryanoasis/vim-devicons'
 Plug 'evidens/vim-twig'
 Plug 'Yggdroot/indentLine'
-Plug 'dsawardekar/wordpress.vim'
-Plug 'shawncplus/phpcomplete.vim'
+"Plug 'dsawardekar/wordpress.vim'
+"Plug 'shawncplus/phpcomplete.vim'
 Plug 'SirVer/ultisnips'
-Plug 'StanAngeloff/php.vim'
+"Plug 'StanAngeloff/php.vim'
 call plug#end()
 
 syntax on
@@ -56,10 +56,11 @@ set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set nowrap incsearch hlsearch splitbelow 
 set autoindent copyindent 
 set wildmenu 
-set relativenumber
+"set relativenumber
 set nonumber
+set number
 set noesckeys
-set foldmethod=indent
+"set foldmethod=indent
 set laststatus=2
 set mouse=n
 set showcmd

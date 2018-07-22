@@ -22,6 +22,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tikhomirov/vim-glsl'
+Plug 'jwalton512/vim-blade'
 Plug 'scrooloose/nerdtree' 
 Plug 'Haron-Prime/Antares'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -41,8 +42,9 @@ Plug 'SirVer/ultisnips'
 "Plug 'StanAngeloff/php.vim'
 call plug#end()
 
+
 syntax on
-colorscheme antares
+"colorscheme antares
 filetype plugin on
 
 set background=dark
@@ -65,6 +67,8 @@ set laststatus=2
 set mouse=n
 set showcmd
 set path+=~/motizium/include/linmath.h
+set termguicolors
+" set cursorline
 " set wildignore+=node_modules/**
 
 nmap ,so :so ~/.vimrc <cr>
@@ -149,6 +153,19 @@ hi Normal 		guifg=#f6f3e8 guibg=#242424 gui=none
 hi NonText 		guifg=#f6f3e8 guibg=#242424 gui=none
 hi LineNr 		guibg=#242424 gui=none
 hi NonText ctermfg=236
+hi TabLine guifg=#ffffff guibg=#333333
+hi Comment ctermfg=red
+"hi Search guibg=#111111 guifg=#ff2222
+"hi Pmenu guibg=#111111 guifg=#FFFFFF
+"hi PmenuSel guibg=#222222 guifg=#FFCCCC
+"hi comment ctermfg=red guibg=#ff0000
+"hi Visual guibg=#222222 guifg=none
+"hi Todo guifg=red ctermfg=red
+"hi Visual ctermbg=160
+"hi Pmenu ctermfg=160 ctermbg=none
+"hi PmenuSel ctermfg=red
+"hi clear CursorLine 
+"hi CursorLine ctermbg=235 guibg=#111111
 
 " CUSTOM TEMPLATE FUNCTION
 function! GetTemplate()

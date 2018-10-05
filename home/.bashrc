@@ -14,6 +14,10 @@ alias so="source ~/.bashrc"
 alias tree="tree -C"
 alias so="source ~/.bashrc"
 alias cal="cal -m"
+alias cdwoocommerce="cd $HOME/xeven/xeven.icu/public/custom/wp-content/plugins/woocommerce"
+alias cdvxstore="cd $HOME/xeven/xeven.icu/public/vxstore"
+
+set -o vi
 
 function make_ps1()
 {
@@ -26,14 +30,16 @@ function make_ps1()
   # local yellow1="\e[93m"
 
   local reset="\[\033[0m\]"
-  local black="\[\033[01;0;90m\]"
-  local red="\[\033[01;0;91m\]"
+  local black="\[\033[01;1;90m\]"
+  local red="\[\033[01;1;91m\]"
   local green="\[\033[01;0;92m\]"
   local yellow="\[\033[01;0;93m\]"
   local blue="\[\033[01;0;94m\]"
   local purple="\[\033[01;0;95m\]"
-  local white="\[\033[01;0;00m\]"
+  local white="\[\033[01;1;00m\]"
   local lightblue="\[\033[01;0;96m\]"
+
+  local test="\[\033[01;1;90m\]"
 
   # color=80
   # while [ $color -lt 100 ] ; do
@@ -44,8 +50,9 @@ function make_ps1()
   local UNAME="${red}\u${reset}"
   local HOST="${yellow}\h${reset}"
   local CDIR="${red}\W${reset}"
-  local PATH="${purple}\w${reset}"
-  export PS1="${black}[${reset} ${UNAME}@${HOST} | ${PATH} ${black}]${reset}\n> ${reset}"
+  local PATH="${test}\w${reset}"
+
+  export PS1="${black}[${reset} ${UNAME}@${HOST} ${black}<${reset} ${PATH} ${black}]${black}\n> ${reset}"
 }
 make_ps1
 
@@ -69,9 +76,11 @@ export NVM_DIR="$HOME/.nvm"
 # export FZF_DEFAULT_COMMAND='ag -l -g ""'
 # export TERM="xterm-color"
 
-LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'di=1;31:' ; export LS_COLORS
 
 export MAIL=~/Maildir
 #export MAIL=/var/spool/mail/ruudi
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 # export XDG_CONFIG_HOME="$HOME/.config"
+
+export HISTFILE="$HOME/doc/conf/.bash_history"

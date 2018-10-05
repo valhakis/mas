@@ -7,6 +7,7 @@ mkdir -p $HOME/.vim/backup
 mkdir -p $HOME/.vim/syntax
 mkdir -p $HOME/.vim/ftplugin
 mkdir -p $HOME/.vim/after/ftplugin
+mkdir -p $HOME/.vim/undodir
 
 # vim plug installation
 read -p "wanna install bspwm ? y/n " -n 1 -r

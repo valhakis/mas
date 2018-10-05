@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>LOREM TEXT</title>
+    <title></title>
   </head>
   <body>
 
-    <p>LOREM TEXT</p>
-
   </body>
 </html>
+
+<!-- vim: set ft=html syn=php: -->

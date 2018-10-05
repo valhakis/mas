@@ -41,7 +41,8 @@ URxvt.font: xft:CourierPrimeCode Nerd Font Mono:style=Regular
 URxvt*scrollBar: false
 URxvt*scrollBar_right: false
 URxvt*scrollBar_floating: false
-URxvt*background: rgb:00/00/00
+!URxvt*background: rgb:00/00/00
+URxvt*background: rgb:11/11/11
 URxvt*foreground: rgb:FF/FF/FF
 URxvt*cursorColor: rgb:FF/FF/33
 

@@ -1,7 +1,11 @@
+" <checkpoint>
+
 call plug#begin('~/.vim/plugged')
+Plug 'Yggdroot/indentLine'
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'airblade/vim-rooter'
 Plug 'digitaltoad/vim-pug'
+"Plug 'MattesGroeger/vim-bookmarks'
 Plug 'posva/vim-vue'
 Plug 'ap/vim-css-color'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
@@ -35,9 +39,8 @@ Plug 'tpope/vim-repeat'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'ryanoasis/vim-devicons'
 "Plug 'evidens/vim-twig'
-"Plug 'lumiliet/vim-twig'
 Plug 'lumiliet/vim-twig'
-Plug 'Yggdroot/indentLine'
+"Plug 'lumiliet/vim-twig'
 "Plug 'dsawardekar/wordpress.vim'
 "Plug 'shawncplus/phpcomplete.vim'
 Plug 'SirVer/ultisnips'
@@ -59,8 +62,10 @@ Plug 'joshdick/onedark.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'alvan/vim-php-manual'
 Plug 'vim-utils/vim-man'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
+" <checkpoint> 
 
 syntax on
 filetype plugin on
@@ -76,14 +81,21 @@ colorscheme onedark
 "set omnifunc=syntaxcomplete#Complete
 set background=dark
 set nocompatible
-"set nowrap
-set wrap
 set encoding=utf8
 set backupdir=~/.vim/backup/
 "set guifont=CourierPrimeCode-Regular\ Nerd\ Font\ 10
 set directory=~/.vim/swp/
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+
 set nowrap 
+"set wrap
+"set wrapmargin=8
+"set showbreak=… 
+
+"set list
+"set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+"set showbreak=↪
+
 set incsearch 
 set hlsearch 
 set splitbelow 
@@ -101,6 +113,8 @@ set guioptions=!
 
 set noesckeys
 
+set magic
+
 "set foldmethod=indent
 set laststatus=2
 set mouse=n
@@ -109,7 +123,9 @@ set history=500
 set autoread
 set ruler
 set hid
-set lazyredraw
+"set lazyredraw
+set ignorecase
+set nolazyredraw
 set ffs=unix,dos,mac
 set nobackup
 set undofile
@@ -123,6 +139,9 @@ set undodir=$HOME/.vim/undodir
 " set cursorline
 " set wildignore+=node_modules/**
 
+" <checkpoint>
+
+nmap ,wot :VimwikiTabnewLink <cr>
 nmap ,so :so ~/.vimrc <cr>
 nmap ,edit :tabedit ~/.vimrc <cr>
 nmap ,bspwm :tabedit ~/.config/bspwm/bspwmrc <cr>
@@ -165,6 +184,8 @@ nmap ,b :call HtmlBeautify() <cr>
 nmap ,fi :FZF <cr>
 nmap ,cb :CtrlPBuffer <cr>
 
+" <checkpoint>
+
 let s:mycolors = [
       \ 'badwolf', 
       \ 'molokai', 
@@ -174,6 +195,7 @@ let s:mycolors = [
       \ 'morning',
       \ 'github']
 
+let g:lorem = "LOREM TEXT"
 let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
 "let g:markdown_fenced_languages = ['cpp', 'ruby', 'json', 'javascript', 'c', 'sh', 'php', 'mysql', 'html', 'scss']
 let g:vim_markdown_folding_disabled = 1
@@ -209,6 +231,8 @@ let g:neocomplete#sources#syntax#min_keyword_length = 2
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
+
+" <checkpoint>
 
 au FileType vue syntax sync fromstart
 au BufRead,BufNewFile *.scss set filetype=scss.css
@@ -524,3 +548,46 @@ endfunction
 
 command! Test call OutputLoremText()
 command! -nargs=1 Pman call Pman('<args>') 
+
+function! CameleonColor()
+  let xoutput = system("chameleon")
+  let xparts = split(xoutput)
+  let xcolor = xparts[0]
+  return xcolor
+endfunction
+"map ,co :call CameleonColor() <cr>
+imap ,co <c-r>=CameleonColor() <cr>
+
+function! NextCheckPoint()
+  /\<checkpoint\>
+  :normal zz
+endfunction
+
+function! AddCheckPoint()
+  let current_filetype = &filetype
+
+  if (match("vim", current_filetype) == 0)
+    :normal o" <checkpoint>
+  else
+    :normal o<!-- <checkpoint> -->
+  endif
+
+endfunction
+
+" <checkpoint>
+
+nmap ,nc :call NextCheckPoint() <cr>
+nmap ,np :call NextCheckPoint() <cr>
+
+nmap ,acp :call AddCheckPoint() <cr>
+
+function! MyDate()
+  let out = system("date")
+  let len = strlen(out)
+  let part = strpart(out, 0, len-1)
+
+  return part
+endfunction
+
+imap ,md <c-r>=MyDate() <cr>
+

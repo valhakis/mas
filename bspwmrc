@@ -22,7 +22,10 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc config focus_follows_pointer true
+bspc rule -a lxqt-openssh-askpass state=floating
 
 #feh --bg-center --bg-scale ~/img/wallpaper.jpg
 feh --bg-center --bg-scale $HOME/img/background/background-dark-bird.jpg
 bspc config focused_border_color "#aa2222"
+
+bspc config external_rules_command "$(which external_rules)"

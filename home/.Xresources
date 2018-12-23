@@ -25,7 +25,26 @@ URxvt*scrollTtyKeypress: false
 !URxvt*font: xft:Noto Mono:style=Regular
 !URxvt.font: xft:DejaVu Sans:pixelsize=14,xft:Symbola,xft:Noto Emoji:minspace=False
 !URxvt.font: xft:Courier Prime Code
-URxvt.font: xft:CourierPrimeCode Nerd Font Mono:style=Regular
+
+
+
+! printf '\e]710;%s\007' "xft:CourierPrimeCode Nerd Font Mono:pixelsize=14"
+! printf '\e]710;%s\007' "xft:Courier Prime:pixelsize=14"
+! URxvt.font: xft:Courier Prime:style=Regular:pixelsize=14
+! URxvt.font: xft:CourierPrimeCode Nerd Font Mono:style=Regular:pixelsize=14:antialias=true,xft:Courier Prime:style=Regular:pixelsize=14:antialias=true
+!URxvt.font: xft:CourierPrimeCode Nerd Font Mono:pixelsize=14
+!URxvt.font: xft:Courier Prime Code
+!uRxvt.font: xft:Arial:pixelsize=16
+!uRxvt.font: xft:Adobe Courier:pixelsize=16
+!URxvt.font: xft:Source Han Sans CN:pixelsize=14
+!URxvt.font: xft:Source Han Sans CN:pixelsize=14
+!URxvt.font: xft:Courier Prime Code, xft:Source Han Sans CN:pixelsize=14
+!URxvt.font: xft:Courier Prime Code, xft:Source Han Sans CN
+!URxvt.font: xft:Courier Prime Code, xft:Source Han Sans JP
+!URxvt.font: xft:Courier Prime Code:pixelsize=14:antialias=true, xft:Source Han Sans CN:pixelsize=14:antialias=true
+!URxvt.font: xfg:CourierPrimeCode Nerd Font Mono:pixelsize=14:antialias=true
+URxvt.font: xft:CourierPrimeCode Nerd Font Mono:pixelsize=14:antialias=true
+
 !/usr/share/fonts/TTF/My Font Regular.ttf: CourierPrimeCode Nerd Font:style=Regular 
 !URxvt.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
 !URxvt.color12: rgb:5c/5c/ff
@@ -48,4 +67,4 @@ URxvt*cursorColor: rgb:FF/FF/33
 
 XTerm*background: rgb:00/00/00
 XTerm*foreground: rgb:FF/FF/FF
-XTerm*font: xft:Courier Prime Code:style=Regular
+XTerm*font: xft:Courier Prime Code

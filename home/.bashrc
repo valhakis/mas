@@ -16,6 +16,7 @@ alias so="source ~/.bashrc"
 alias cal="cal -m"
 alias cdwoocommerce="cd $HOME/xeven/xeven.icu/public/custom/wp-content/plugins/woocommerce"
 alias cdvxstore="cd $HOME/xeven/xeven.icu/public/vxstore"
+alias vim="vim --servername vim"
 
 set -o vi
 
@@ -83,6 +84,8 @@ export MAIL=~/Maildir
 # export MAIL=/var/mail/$USER
 #export MAIL=/var/spool/mail/ruudi
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$HOME/.dotnet/tools:$PATH"
+export PATH="$HOME/.bin:$PATH"
 # export XDG_CONFIG_HOME="$HOME/.config"
 
 export HISTFILE="$HOME/doc/conf/.bash_history"

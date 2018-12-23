@@ -78,7 +78,9 @@ export NVM_DIR="$HOME/.nvm"
 
 LS_COLORS=$LS_COLORS:'di=1;31:' ; export LS_COLORS
 
+#export MAIL=~/Maildir
 export MAIL=~/Maildir
+# export MAIL=/var/mail/$USER
 #export MAIL=/var/spool/mail/ruudi
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 # export XDG_CONFIG_HOME="$HOME/.config"

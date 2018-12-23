@@ -5,6 +5,7 @@ mkdir -p $HOME/.vim
 mkdir -p $HOME/.vim/swp
 mkdir -p $HOME/.vim/backup
 mkdir -p $HOME/.vim/syntax
+mkdir -p $HOME/.vim/indent
 mkdir -p $HOME/.vim/ftplugin
 mkdir -p $HOME/.vim/after/ftplugin
 mkdir -p $HOME/.vim/undodir
@@ -45,6 +46,8 @@ ln -s $HOME/mas/vim/syntax/c.vim $HOME/.vim/syntax/c.vim
 ln -s $HOME/mas/vim/syntax/motizium.vim $HOME/.vim/syntax/motizium.vim
 ln -s $HOME/mas/vim/syntax/text.vim $HOME/.vim/syntax/text.vim
 ln -s $HOME/mas/vim/syntax/javascript.vim $HOME/.vim/syntax/javascript.vim
+ln -s $HOME/mas/vim/indent/twig.vim $HOME/.vim/indent/twig.vim
+ln -s $HOME/mas/vim/indent/apachestyle.vim $HOME/.vim/indent/apachestyle.vim
 ln -s $HOME/mas/vim/filetype.vim $HOME/.vim/filetype.vim
 ln -s $HOME/mas/start.sh $HOME/bin/start
 ln -s $HOME/mas/vim/ftplugin/text.vim $HOME/.vim/ftplugin/text.vim

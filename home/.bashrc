@@ -1,13 +1,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-export TERM="xterm-256color"
-export TERM="tmux-256color"
-force_color_prompt=yes
 
-#alias ls="ls --color "
+# COMMON
 
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+set -o vi
+
+#export TERM="xterm-256color"
+#export TERM="tmux-256color"
 
 alias svim="sudo -E vim "
 alias so="source ~/.bashrc"
@@ -18,7 +17,34 @@ alias cdwoocommerce="cd $HOME/xeven/xeven.icu/public/custom/wp-content/plugins/w
 alias cdvxstore="cd $HOME/xeven/xeven.icu/public/vxstore"
 alias vim="vim --servername vim"
 
-set -o vi
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export GEM_HOME=$HOME/.gem
+export PATH="$HOME/app/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$HOME/.dotnet/tools:$PATH"
+export PATH="$HOME/.bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+export HISTFILE="$HOME/doc/conf/.bash_history"
+export MAIL=~/Maildir
+
+if [ "$HOSTNAME" = "server" ] ; then
+
+  # SERVER
+  export MAIL=~/Maildir
+
+else
+
+  # OTHER
+  force_color_prompt=yes
+  alias ls='ls --color=auto'
+  PS1='[\u@\h \W]\$ '
+
+  LS_COLORS=$LS_COLORS:'di=1;31:' ; export LS_COLORS
+
+fi
+
+#alias ls="ls --color "
 
 function make_ps1()
 {
@@ -57,33 +83,16 @@ function make_ps1()
 }
 make_ps1
 
-# export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
-export GEM_HOME=$HOME/.gem
-export PATH="$HOME/app/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
 # export PATH=$PATH:"$HOME/include"
 # export C_INCLUDE_PATH=$C_INCLUDE_PATH:"$HOME/include"
 # export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:"$HOME/include"
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"$HOME/lib"
 # export LIBRARY_PATH=$LIBRARY_PATH:"$HOME/lib"
-
 # [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # export FZF_DEFAULT_COMMAND='ag -l -g ""'
 # export TERM="xterm-color"
-
-LS_COLORS=$LS_COLORS:'di=1;31:' ; export LS_COLORS
-
-export MAIL=~/Maildir
 #export MAIL=/var/spool/mail/ruudi
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-export PATH="$HOME/.dotnet/tools:$PATH"
-export PATH="$HOME/.bin:$PATH"
 # export XDG_CONFIG_HOME="$HOME/.config"
 
-export HISTFILE="$HOME/doc/conf/.bash_history"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

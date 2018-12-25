@@ -27,6 +27,8 @@ export PATH="$HOME/.bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 export HISTFILE="$HOME/doc/conf/.bash_history"
 export MAIL=~/Maildir
+export VISUAL="vim"
+export EDITOR="$VISUIAL"
 
 if [ "$HOSTNAME" = "server" ] ; then
 

@@ -6,7 +6,7 @@
 set -o vi
 
 #export TERM="xterm-256color"
-#export TERM="tmux-256color"
+export TERM="tmux-256color"
 
 alias svim="sudo -E vim "
 alias so="source ~/.bashrc"

@@ -16,6 +16,7 @@ alias cal="cal -m"
 alias cdwoocommerce="cd $HOME/xeven/xeven.icu/public/custom/wp-content/plugins/woocommerce"
 alias cdvxstore="cd $HOME/xeven/xeven.icu/public/vxstore"
 alias vim="vim --servername vim"
+alias ls='ls --color=auto'
 
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export GEM_HOME=$HOME/.gem
@@ -27,6 +28,7 @@ export PATH="$HOME/.bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 export HISTFILE="$HOME/doc/conf/.bash_history"
 export MAIL=~/Maildir
+export LS_COLORS=$LS_COLORS:'di=1;31:'
 
 if [ "$HOSTNAME" = "server" ] ; then
 
@@ -37,10 +39,9 @@ else
 
   # OTHER
   force_color_prompt=yes
-  alias ls='ls --color=auto'
   PS1='[\u@\h \W]\$ '
 
-  LS_COLORS=$LS_COLORS:'di=1;31:' ; export LS_COLORS
+  # LS_COLORS=$LS_COLORS:'di=1;31:' ; export LS_COLORS
 
 fi
 

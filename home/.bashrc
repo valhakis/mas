@@ -29,6 +29,8 @@ export NVM_DIR="$HOME/.nvm"
 export HISTFILE="$HOME/doc/conf/.bash_history"
 export MAIL=~/Maildir
 export LS_COLORS=$LS_COLORS:'di=1;31:'
+export VISUAL="vim"
+export EDITOR="$VISUIAL"
 
 if [ "$HOSTNAME" = "server" ] ; then
 

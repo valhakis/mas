@@ -90,8 +90,8 @@ function make_ps1()
     local UNAME="${purple}\u${reset}"
     local HOST="${blue}\h${reset}"
   elif [ "$HOSTNAME" = "server" ] ; then
-    local UNAME="${black}\u${reset}"
-    local HOST="${black}\h${reset}"
+    local UNAME="${lightblue}\u${reset}"
+    local HOST="${blue}\h${reset}"
   fi
 
   export PS1="${black}[${reset} ${UNAME}@${HOST} ${black}<${reset} ${PATH} ${black}]${black}\n> ${reset}"

@@ -37,6 +37,10 @@ if [ "$HOSTNAME" = "server" ] ; then
   # SERVER
   export MAIL=~/Maildir
 
+elif [ "$HOSTNAME" = "vrch" ] ; then
+
+  export MAIL=~/Maildir
+
 else
 
   # OTHER
@@ -81,6 +85,14 @@ function make_ps1()
   local HOST="${yellow}\h${reset}"
   local CDIR="${red}\W${reset}"
   local PATH="${test}\w${reset}"
+
+  if [ "$HOSTNAME" = "vrch" ] ; then
+    local UNAME="${purple}\u${reset}"
+    local HOST="${blue}\h${reset}"
+  elif [ "$HOSTNAME" = "server" ] ; then
+    local UNAME="${black}\u${reset}"
+    local HOST="${black}\h${reset}"
+  fi
 
   export PS1="${black}[${reset} ${UNAME}@${HOST} ${black}<${reset} ${PATH} ${black}]${black}\n> ${reset}"
 }

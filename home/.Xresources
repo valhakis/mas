@@ -67,4 +67,9 @@ URxvt*cursorColor: rgb:FF/FF/33
 
 XTerm*background: rgb:00/00/00
 XTerm*foreground: rgb:FF/FF/FF
-XTerm*font: xft:Courier Prime Code
+!XTerm*font: xft:Courier Prime Code
+XTerm*font: xft:CourierPrimeCode Nerd Font Mono:pixelsize=14:antialias=true
+
+dzen2.font:       -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*
+dzen2.foreground: #FF0000
+dzen2.background: #00FFF0

@@ -7,7 +7,9 @@ set -o vi
 
 #export TERM="xterm-256color"
 export TERM="tmux-256color"
+export _JAVA_AWT_WM_NONREPARENTING=1
 
+alias mt='multitail -CS php'
 alias svim="sudo -E vim "
 alias so="source ~/.bashrc"
 alias tree="tree -C"
@@ -21,16 +23,31 @@ alias ls='ls --color=auto'
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export GEM_HOME=$HOME/.gem
 export PATH="$HOME/app/bin:$PATH"
+export PATH="$HOME/red/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
 export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.config/bspwm:$PATH"
 export NVM_DIR="$HOME/.nvm"
 export HISTFILE="$HOME/doc/conf/.bash_history"
 export MAIL=~/Maildir
 export LS_COLORS=$LS_COLORS:'di=1;31:'
 export VISUAL="vim"
 export EDITOR="$VISUIAL"
+
+PANEL_FIFO=/tmp/panel-fifo
+PANEL_HEIGHT=24
+PANEL_FONT="-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+PANEL_WM_NAME=bspwm_panel
+export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_WM_NAME
+
+#PANEL_FIFO=/tmp/panel-fifo
+#PANEL_HEIGHT=24
+#PANEL_FONT="-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+#PANEL_WM_NAME=bspwm_panel
+#export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_WM_NAME
+
 
 if [ "$HOSTNAME" = "server" ] ; then
 

@@ -1,12 +1,19 @@
 call plug#begin('~/.vim/plugged')
+"Plug 'captbaritone/better-indent-support-for-php-with-html'
+"Plug 'spf13/PIV'
+"Plug '2072/PHP-Indenting-for-VIm'
+Plug 'mxw/vim-jsx'
 Plug 'Yggdroot/indentLine'
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'airblade/vim-rooter'
 Plug 'digitaltoad/vim-pug'
 "Plug 'MattesGroeger/vim-bookmarks'
 Plug 'posva/vim-vue'
-Plug 'ap/vim-css-color'
+"Plug 'ap/vim-css-color'
+Plug 'vim-latex/vim-latex'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
+"Plug 'xuhdev/vim-latex-live-preview'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'jwalton512/vim-blade'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'dhruvasagar/vim-table-mode'
@@ -122,7 +129,7 @@ set autoread
 set ruler
 set hid
 "set lazyredraw
-set ignorecase
+"set ignorecase
 set nolazyredraw
 set ffs=unix,dos,mac
 set nobackup
@@ -133,6 +140,8 @@ set noswapfile
 set path+=~/motizium/include/linmath.h
 set path+=/usr/include/freetype2
 set undodir=$HOME/.vim/undodir
+set tags+=$HOME/ctags/tags
+set tags+=$HOME/xeven/xeven.icu/public/glassesly-4/ctags
 "set termguicolors
 " set cursorline
 " set wildignore+=node_modules/**
@@ -159,6 +168,7 @@ nmap ,htmlref :tabedit ~/mas/vim/ref/reference.html <cr>
 nmap ,read :tabedit ~/mas/vim/ref/readme.md <cr>
 nmap ,cref :tabedit ~/mas/vim/ref/reference.c <cr>
 nmap ,vref :tabedit ~/mas/vim/ref/reference.vim <cr>
+nmap ,xvim :tabedit .xvim <cr>
 nmap ,si :tabedit ~/mas/vim/scripts.js <cr>
 nmap ,re :tabedit +1buf <cr>
 "nmap \mr :w <bar> !./start.sh <cr>
@@ -224,6 +234,10 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 2
+let g:livepreview_previewer = 'evince'
+let g:jsx_ext_required = 1
+"let g:livepreview_engine = 'your_engine' . ' [options]'
+"let g:livepreview_cursorhold_recompile = 0
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -235,6 +249,7 @@ endif
 au FileType vue syntax sync fromstart
 au BufRead,BufNewFile *.scss set filetype=scss.css
 au BufRead,BufNewFile boxec.conf set filetype=config
+au BufRead,BufNewFile .xvim set filetype=sh
 au FileType scss set iskeyword+=-
 au FileType css setlocal omnifunc=csscomplete#CompleteCSS
 
@@ -243,6 +258,7 @@ au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType python setlocal omnifunc=pythoncomplete#Complete
 au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 au! BufNewFile,BufRead *.vs,*.fs set ft=glsl
+au! BufNewFile,BufRead .bowerrc set ft=json
 
 "hi Search ctermfg=red ctermbg=none guibg=NONE guifg=yellow
 " hi IncSearch ctermbg=yellow ctermfg=black

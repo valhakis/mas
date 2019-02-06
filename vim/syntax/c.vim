@@ -241,7 +241,7 @@ if exists("c_gnu")
 endif
 syn keyword	cType		int long short char void
 syn keyword	cType		signed unsigned float double
-syn keyword	cType		uint Window Display XEvent
+syn keyword	cType		uint Window Display XEvent cairo_t cairo_surface_t
 syn keyword	cType		Colormap XVisualInfo XSetWindowAttributes
 syn keyword	cType		GLXContext XWindowAttributes Visual
 syn keyword	cType	        pid_t 

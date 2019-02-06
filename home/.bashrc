@@ -17,10 +17,8 @@ alias so="source ~/.bashrc"
 alias cal="cal -m"
 alias cdwoocommerce="cd $HOME/xeven/xeven.icu/public/custom/wp-content/plugins/woocommerce"
 alias cdvxstore="cd $HOME/xeven/xeven.icu/public/vxstore"
-alias vim="vim --servername vim"
 alias ls='ls --color=auto'
 
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export GEM_HOME=$HOME/.gem
 export PATH="$HOME/app/bin:$PATH"
 export PATH="$HOME/red/bin:$PATH"
@@ -53,6 +51,24 @@ if [ "$HOSTNAME" = "server" ] ; then
 
   # SERVER
   export MAIL=~/Maildir
+
+elif [ "$HOSTNAME" = "vrch" ] ; then
+
+  export MAIL=~/Maildir
+
+elif [ "$HOSTNAME" = "master" ] ; then
+
+  force_color_prompt=yes
+  PS1='[\u@\h \W]\$ '
+
+elif [ "$HOSTNAME" = "slave" ] ; then
+
+  force_color_prompt=yes
+  PS1='[\u@\h \W]\$ '
+
+elif [ "$HOSTNAME" = "arch" ] ; then
+
+  export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 
 else
 
@@ -98,6 +114,14 @@ function make_ps1()
   local HOST="${yellow}\h${reset}"
   local CDIR="${red}\W${reset}"
   local PATH="${test}\w${reset}"
+
+  if [ "$HOSTNAME" = "vrch" ] ; then
+    local UNAME="${purple}\u${reset}"
+    local HOST="${blue}\h${reset}"
+  elif [ "$HOSTNAME" = "server" ] ; then
+    local UNAME="${lightblue}\u${reset}"
+    local HOST="${blue}\h${reset}"
+  fi
 
   export PS1="${black}[${reset} ${UNAME}@${HOST} ${black}<${reset} ${PATH} ${black}]${black}\n> ${reset}"
 }

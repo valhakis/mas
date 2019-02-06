@@ -15,10 +15,8 @@ alias so="source ~/.bashrc"
 alias cal="cal -m"
 alias cdwoocommerce="cd $HOME/xeven/xeven.icu/public/custom/wp-content/plugins/woocommerce"
 alias cdvxstore="cd $HOME/xeven/xeven.icu/public/vxstore"
-alias vim="vim --servername vim"
 alias ls='ls --color=auto'
 
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export GEM_HOME=$HOME/.gem
 export PATH="$HOME/app/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
@@ -40,6 +38,20 @@ if [ "$HOSTNAME" = "server" ] ; then
 elif [ "$HOSTNAME" = "vrch" ] ; then
 
   export MAIL=~/Maildir
+
+elif [ "$HOSTNAME" = "master" ] ; then
+
+  force_color_prompt=yes
+  PS1='[\u@\h \W]\$ '
+
+elif [ "$HOSTNAME" = "slave" ] ; then
+
+  force_color_prompt=yes
+  PS1='[\u@\h \W]\$ '
+
+elif [ "$HOSTNAME" = "arch" ] ; then
+
+  export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 
 else
 

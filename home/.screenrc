@@ -1,2 +1,8 @@
 # escape ^Jj
 mousetrack on
+
+#caption always "%{= kw}%-w%{= gW}%n %t%{-}%+w %-= xxx - %Y-%m-%d %C:%s"
+
+# %w
+
+caption always "%{= kw}%-w%{= y}%n %t%{-}%+w %-= %H - %d.%m.%Y %c:%s"

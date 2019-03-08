@@ -10,6 +10,7 @@ export TERM="tmux-256color"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 alias mt='multitail -CS php'
+alias xvim="vim -u ~/vim/vimrc"
 alias svim="sudo -E vim "
 alias so="source ~/.bashrc"
 alias tree="tree -C"
@@ -30,7 +31,10 @@ export PATH="$HOME/.config/bspwm:$PATH"
 export NVM_DIR="$HOME/.nvm"
 export HISTFILE="$HOME/doc/conf/.bash_history"
 export MAIL=~/Maildir
-export LS_COLORS=$LS_COLORS:'di=1;31:'
+export LS_COLORS=$LS_COLORS:'di=1;31:ow=1;33:'
+
+# ex=5;31;
+
 export VISUAL="vim"
 export EDITOR="$VISUIAL"
 

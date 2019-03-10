@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 "Plug 'spf13/PIV'
 "Plug '2072/PHP-Indenting-for-VIm'
 Plug 'mxw/vim-jsx'
+Plug 'phpactor/phpactor'
 Plug 'Yggdroot/indentLine'
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'airblade/vim-rooter'
@@ -74,12 +75,12 @@ call plug#end()
 
 syntax on
 filetype plugin on
-"colorscheme antares
+colorscheme antares
 "colorscheme dracula
 "olorscheme badwolf
 "colorscheme molokai
 "colorscheme jellybeans
-colorscheme onedark
+"colorscheme onedark
 
 "setlocal omnifunc=syntaxcomplete#Complete
 "set completeopt=menuone,preview
@@ -133,7 +134,7 @@ set hid
 set nolazyredraw
 set ffs=unix,dos,mac
 set nobackup
-set undofile
+"set undofile
 set nowb
 set noswapfile
 "set cmdheight=2
@@ -151,6 +152,7 @@ set tags+=$HOME/xeven/xeven.icu/public/glassesly-4/ctags
 nmap ,wot :VimwikiTabnewLink <cr>
 nmap ,so :so ~/.vimrc <cr>
 nmap ,edit :tabedit ~/.vimrc <cr>
+nmap ,secret :tabedit ~/secret/passwords.json <cr>
 nmap ,bspwm :tabedit ~/.config/bspwm/bspwmrc <cr>
 nmap ,sxhkd :tabedit ~/.config/sxhkd/sxhkdrc <cr>
 nmap ,notes :tabedit ~/notes <cr>
@@ -254,6 +256,7 @@ au BufRead,BufNewFile boxec.conf set filetype=config
 au BufRead,BufNewFile .xvim set filetype=sh
 au FileType scss set iskeyword+=-
 au FileType css setlocal omnifunc=csscomplete#CompleteCSS
+au FileType php setlocal autoindent
 
 au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS

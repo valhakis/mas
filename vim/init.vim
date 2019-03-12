@@ -611,3 +611,54 @@ endfunction
 imap ,md <c-r>=MyDate() <cr>
 
 " vim :set ft=vim:
+
+" |A| - [urxvt -e /bin/sh -c 'ls;bash'] X
+
+function EnterFunction()
+
+  let type = 'A'
+
+  let msg = 'INVALID LINE DETECTED'
+
+  let line = getline('.')
+
+  " CHECK IF STARTS WITH |A|
+
+  if !empty(matchstr(line, '|A|'))
+    let type = 'A'
+  elseif !empty(matchstr(line, '|B|'))
+    let type = 'B'
+  elseif !empty(matchstr(line, '|T|'))
+    let type = 'T'
+  else
+    echo 'INVALID STRING DETECTED'
+    return
+  endif
+
+  " EXTRACT TEXT INSIDE BRACKETS
+  let test = matchstr(line, '\[.*\]')
+  if empty(test)
+    echo 'INVALID STRING DETECTED'
+    return
+  endif
+
+  let command = test[1:strlen(test)-2]
+
+  if type == 'A'
+    execute "silent !" . "nohup " . command . "& disown"
+  elseif type == 'B'
+    execute "silent !" . "nohup " . "urxvt -e /bin/sh -c '" . command . ";'" . "& disown"
+  elseif type == 'T'
+    execute "silent !" . "nohup " . "urxvt -e /bin/sh -c '" . command . ";bash'" . "& disown"
+  endif
+
+  execute 'redraw!'
+
+endfunction
+
+map <silent> <space> :call EnterFunction() <cr>
+
+syntax match enterApp "|A|"
+syntax match enterApp "|B|"
+
+hi enterApp ctermfg=121

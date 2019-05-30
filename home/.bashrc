@@ -19,6 +19,7 @@ alias cal="cal -m"
 alias cdwoocommerce="cd $HOME/xeven/xeven.icu/public/custom/wp-content/plugins/woocommerce"
 alias cdvxstore="cd $HOME/xeven/xeven.icu/public/vxstore"
 alias ls='ls --color=auto'
+alias ssh="ssh -XY"
 
 export GEM_HOME=$HOME/.gem
 export PATH="$HOME/app/bin:$PATH"
@@ -126,6 +127,9 @@ function make_ps1()
   elif [ "$HOSTNAME" = "server" ] ; then
     local UNAME="${lightblue}\u${reset}"
     local HOST="${blue}\h${reset}"
+  elif [ "$HOSTNAME" = "arch" ] ; then
+    local RAXVX="SS"
+    # local UNAME="${red}hide${reset}"
   fi
 
   export PS1="${black}[${reset} ${UNAME}@${HOST} ${black}<${reset} ${PATH} ${black}]${black}\n> ${reset}"

@@ -32,8 +32,8 @@ bspc config focused_border_color "#aa2222"
 
 bspc config external_rules_command "$(which external_rules)"
 
-red &
-urxvt &
+# red &
+#urxvt &
 
 /usr/lib/notification-daemon-1.0/notification-daemon &
 

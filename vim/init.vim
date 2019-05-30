@@ -1,11 +1,18 @@
+
+" ~/.vim/syntax/vimwiki.vim
+
 call plug#begin('~/.vim/plugged')
 "Plug 'captbaritone/better-indent-support-for-php-with-html'
 "Plug 'spf13/PIV'
 "Plug '2072/PHP-Indenting-for-VIm'
 Plug 'mxw/vim-jsx'
+Plug 'makerj/vim-pdf'
 Plug 'phpactor/phpactor'
 Plug 'Yggdroot/indentLine'
+Plug 'dzeban/vim-log-syntax'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-vdebug/vdebug'
+Plug 'ashisha/image.vim'
 "Plug 'airblade/vim-rooter'
 Plug 'digitaltoad/vim-pug'
 "Plug 'MattesGroeger/vim-bookmarks'
@@ -185,6 +192,7 @@ nmap \rt :w <bar> !./% <cr>
 nmap ,mru :MRU <cr>
 nmap ,ne :NERDTreeSteppedOpen <cr>
 nmap ,nf :NERDTreeFind <cr>
+nmap ,ex :Explore <cr>
 nmap ,install :w <bar> source ~/.vimrc<bar> PlugInstall <cr>
 imap ,l <c-r>=GetTemplate() <cr><esc>
 nmap ,al :e # <cr>
@@ -250,6 +258,7 @@ endif
 " <checkpoint>
 
 
+au BufNewFile,BufRead *.env.default set filetype=sh syntax=sh
 au BufNewFile,BufRead *.mu set filetype=html.mustache syntax=mustache 
 au FileType vue syntax sync fromstart
 au BufRead,BufNewFile *.scss set filetype=scss.css
@@ -354,7 +363,21 @@ function! GetTemplate()
     execute (line == 1 ? '-1' : '') . "read" . result
     execute "normal! =G"
   else
-    echo result . ' does not exist'
+
+    let result = path . '/' . word
+    if filereadable(result)
+      " delete current line
+      d
+      " go one line up
+      call cursor(line-1, 0)
+      " read the file content
+      "execute "read" . result
+      execute (line == 1 ? '-1' : '') . "read" . result
+      d
+      execute "normal! =G"
+    else
+      echo result . ' does not exist'
+    endif
   endif
   return ''
 endfunction
@@ -629,6 +652,10 @@ function EnterFunction()
     let type = 'A'
   elseif !empty(matchstr(line, '|B|'))
     let type = 'B'
+  elseif !empty(matchstr(line, '|C|'))
+    let type = 'C'
+  elseif !empty(matchstr(line, '|D|'))
+    let type = 'D'
   elseif !empty(matchstr(line, '|T|'))
     let type = 'T'
   else
@@ -651,6 +678,10 @@ function EnterFunction()
     execute "silent !" . "nohup " . "urxvt -e /bin/sh -c '" . command . ";'" . "& disown"
   elseif type == 'T'
     execute "silent !" . "nohup " . "urxvt -e /bin/sh -c '" . command . ";bash'" . "& disown"
+  elseif type == 'D'
+    execute "silent !clear;" . command . ";printf '\\nPRESS ENTER TO CLOSE';read"
+  elseif type == 'C'
+    execute "silent !" . "nohup " . "urxvt -e /bin/sh -c '" . command . ";read'" . "& disown"
   endif
 
   execute 'redraw!'
@@ -661,5 +692,7 @@ map <silent> <space> :call EnterFunction() <cr>
 
 syntax match enterApp "|A|"
 syntax match enterApp "|B|"
+syntax match enterApp "|C|"
+syntax match enterApp "|D|"
 
 hi enterApp ctermfg=121

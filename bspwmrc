@@ -40,6 +40,8 @@ bspc config external_rules_command "$(which external_rules)"
 
 /usr/lib/notification-daemon-1.0/notification-daemon &
 
+/srv/http/meow.lan/socket &
+
 #dzen2 &
 #panel &
 #yabar &

@@ -5,20 +5,25 @@ call plug#begin('~/.vim/plugged')
 "Plug 'captbaritone/better-indent-support-for-php-with-html'
 "Plug 'spf13/PIV'
 "Plug '2072/PHP-Indenting-for-VIm'
+Plug 'adelarsq/vim-matchit'
+Plug 'SirVer/ultisnips'
 Plug 'mxw/vim-jsx'
+Plug 'vim-scripts/loremipsum'
 Plug 'makerj/vim-pdf'
 Plug 'phpactor/phpactor'
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/calendar.vim'
 Plug 'dzeban/vim-log-syntax'
+Plug 'honza/vim-snippets'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-vdebug/vdebug'
-Plug 'ashisha/image.vim'
+"Plug 'ashisha/image.vim'
 "Plug 'airblade/vim-rooter'
 Plug 'digitaltoad/vim-pug'
 "Plug 'MattesGroeger/vim-bookmarks'
 Plug 'posva/vim-vue'
 "Plug 'ap/vim-css-color'
+"Plug 'skammer/vim-css-color'
 Plug 'vim-latex/vim-latex'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 "Plug 'xuhdev/vim-latex-live-preview'
@@ -67,7 +72,7 @@ Plug 'mileszs/ack.vim'
 Plug 'dracula/vim'
 Plug 'mitsuhiko/jinja2'
 "Plug 'pallets/jinja'
-"Plug 'rking/ag.vim'
+Plug 'rking/ag.vim'
 Plug 'mattn/webapi-vim'
 Plug 'endel/vim-github-colorscheme'
 Plug 'tomasr/molokai'
@@ -197,6 +202,7 @@ nmap ,ex :Explore <cr>
 nmap ,install :w <bar> source ~/.vimrc<bar> PlugInstall <cr>
 imap ,l <c-r>=GetTemplate() <cr><esc>
 nmap ,al :e # <cr>
+imap ,date <c-r>=MyDate() <cr><esc>
 nmap ,script :tabedit ~/mas/script.sh <cr>
 nmap ,rs :!~/mas/script.sh <cr>
 nmap ,p :CtrlPLine <cr>
@@ -206,6 +212,8 @@ nmap ,cb :CtrlPBuffer <cr>
 
 " <checkpoint>
 
+"let g:vimwiki_url_maxsave=0
+"let g:vimwiki_url_maxsave=40
 let s:mycolors = [
       \ 'badwolf', 
       \ 'molokai', 
@@ -215,6 +223,7 @@ let s:mycolors = [
       \ 'morning',
       \ 'github']
 
+let g:NERDUsePlaceHolders = 0
 let g:lorem = "LOREM TEXT"
 let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
 "let g:markdown_fenced_languages = ['cpp', 'ruby', 'json', 'javascript', 'c', 'sh', 'php', 'mysql', 'html', 'scss']
@@ -250,6 +259,14 @@ let g:livepreview_previewer = 'evince'
 let g:jsx_ext_required = 1
 "let g:livepreview_engine = 'your_engine' . ' [options]'
 "let g:livepreview_cursorhold_recompile = 0
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')

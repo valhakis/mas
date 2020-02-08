@@ -74,7 +74,11 @@ elif [ "$HOSTNAME" = "slave" ] ; then
 elif [ "$HOSTNAME" = "arch" ] ; then
 
   export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
-  export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude node_modules --exclude vendor --exclude bower_components --exclude .PlayOnLinux'
+  #export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude node_modules --exclude vendor --exclude bower_components --exclude .PlayOnLinux'
+  #export FZF_DEFAULT_COMMAND='fd --type f'
+  export FZF_DEFAULT_COMMAND=''
+
+  export GTK_THEME=Adwaita
 
 else
 

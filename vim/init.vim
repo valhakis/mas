@@ -137,8 +137,8 @@ set magic
 
 "set foldmethod=indent
 set laststatus=2
-"set mouse=n
-set mouse=
+set mouse=n
+"set mouse=
 set showcmd
 set history=500
 set autoread

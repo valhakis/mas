@@ -5,6 +5,9 @@ call plug#begin('~/.vim/plugged')
 "Plug 'captbaritone/better-indent-support-for-php-with-html'
 "Plug 'spf13/PIV'
 "Plug '2072/PHP-Indenting-for-VIm'
+
+Plug 'chiel92/vim-autoformat'
+
 Plug 'adelarsq/vim-matchit'
 Plug 'SirVer/ultisnips'
 Plug 'mxw/vim-jsx'
@@ -120,6 +123,7 @@ set incsearch
 set hlsearch 
 set splitbelow 
 set autoindent copyindent 
+set smartindent
 set wildmenu 
 "set relativenumber
 set nonumber
@@ -212,6 +216,8 @@ nmap ,cb :CtrlPBuffer <cr>
 
 " <checkpoint>
 
+let g:formatdef_tidy_xml = '"tidy -q -xml --show-errors 0 --show-warnings 0 --force-output --indent auto --indent-spaces 2 --vertical-space yes --tidy-mark no --indent-attributes yes --wrap-attributes yes"'
+
 "let g:vimwiki_url_maxsave=0
 "let g:vimwiki_url_maxsave=40
 let s:mycolors = [
@@ -274,7 +280,6 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 
 " <checkpoint>
-
 
 au BufNewFile,BufRead *.env.default set filetype=sh syntax=sh
 au BufNewFile,BufRead *.mu set filetype=html.mustache syntax=mustache 

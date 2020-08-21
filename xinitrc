@@ -2,6 +2,7 @@ xrandr --auto
 xrandr --output eDP-1-1 --left-of HDMI-1-1
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
+xrandr --output HDMI-1 --primary
 
 xdg-mime default pcmanfm.desktop inode/directory
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http

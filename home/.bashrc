@@ -131,6 +131,9 @@ function make_ps1()
   elif [ "$HOSTNAME" = "server" ] ; then
     local UNAME="${lightblue}\u${reset}"
     local HOST="${blue}\h${reset}"
+  elif [ "$HOSTNAME" = "moon" ] ; then
+    local UNAME="${yellow}\u${reset}"
+    local HOST="${green}\h${reset}"
   elif [ "$HOSTNAME" = "arch" ] ; then
     local RAXVX="SS"
     # local UNAME="${red}hide${reset}"

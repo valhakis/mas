@@ -14,7 +14,11 @@ Plug 'mxw/vim-jsx'
 Plug 'vim-scripts/loremipsum'
 Plug 'makerj/vim-pdf'
 Plug 'phpactor/phpactor'
+
+Plug 'Valloric/YouCompleteMe'
+
 Plug 'Yggdroot/indentLine'
+
 Plug 'itchyny/calendar.vim'
 Plug 'dzeban/vim-log-syntax'
 Plug 'honza/vim-snippets'
@@ -142,6 +146,7 @@ set magic
 "set foldmethod=indent
 set laststatus=2
 set mouse=n
+"set mouse=
 set showcmd
 set history=500
 set autoread
@@ -229,6 +234,7 @@ let s:mycolors = [
       \ 'morning',
       \ 'github']
 
+"let g:indentLine_char_list = ['|', '?', '?', '?']
 let g:NERDUsePlaceHolders = 0
 let g:lorem = "LOREM TEXT"
 let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))

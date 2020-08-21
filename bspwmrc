@@ -4,8 +4,12 @@ sxhkd &
 
 #bspc monitor -d I II III IV V VI VII VIII IX X
 
-bspc monitor eDP-1-1 -d I
-bspc monitor HDMI-1-1 -d II III IV V VI VII VIII IX X
+#bspc monitor eDP-1-1 -d I
+#bspc monitor HDMI-1-1 -d II III IV V VI VII VIII IX X
+#bspc desktop --focus II
+
+bspc monitor eDP-1 -d I
+bspc monitor HDMI-1 -d II III IV V VI VII VIII IX X
 bspc desktop --focus II
 
 # bspc config active_border_color "#333333"
@@ -64,3 +68,4 @@ compton &
 #pgrep -x panel > /dev/null || panel &
 
 #bspc monitor --focus last
+#bspc desktop --focus II

@@ -4,9 +4,37 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 xrandr --output HDMI-1 --primary
 
+
+if [ "$HOSTNAME" = "moon" ] ; then
+
+  # SOMETHING
+
+  xrandr --auto
+  xrandr --setprovideroutputsource modesetting NVIDIA-0
+  xrandr --auto
+  xrandr --output eDP1 --left-of HDMI1
+  xrandr --output HDMI1 --mode 1920x1080
+  xrandr --output HDMI1 --primary
+
+elif [ "$HOSTNAME" = "vrch" ] ; then
+
+  # SOMETHING SOMETHING
+
+  echo "SOME TEXT"
+
+else
+
+  # SOMETHING ELSE
+
+  echo "SOME OTHER TEXT"
+
+fi
+
 xdg-mime default pcmanfm.desktop inode/directory
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
+xdg-mime default feh.desktop image/png
+xdg-mime default feh.desktop image/jpeg
 
 setxkbmap ee us
 

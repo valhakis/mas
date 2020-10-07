@@ -53,13 +53,13 @@ bspc config external_rules_command "$(which external_rules)"
 
 /usr/lib/notification-daemon-1.0/notification-daemon &
 
-/srv/http/meow.lan/socket &
+#/srv/http/meow.lan/socket &
 
 xcompmgr &
 
 compton &
 
-~/node-socket-app/index.js
+#~/node-socket-app/index.js
 
 #tint2 &
 
@@ -75,3 +75,17 @@ compton &
 
 #bspc monitor --focus last
 #bspc desktop --focus II
+
+if [ "$HOSTNAME" = "moon" ] ; then
+
+  xrandr --setprovideroutputsource modesetting NVIDIA-0
+  xrandr --auto
+  xrandr --output eDP1 --left-of HDMI1
+  xrandr --output HDMI1 --mode 1920x1080
+  xrandr --output HDMI1 --primary
+
+  bspc monitor eDP1 -d I
+  bspc monitor HDMI1 -d II III IV V VI VII VIII IX X
+  bspc desktop --focus II
+
+fi

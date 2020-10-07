@@ -60,7 +60,9 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'othree/html5.vim'
 Plug 'elzr/vim-json'
-Plug 'Shougo/neocomplete.vim'
+
+"Plug 'Shougo/neocomplete.vim'
+
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-repeat'
 Plug 'mustache/vim-mustache-handlebars'

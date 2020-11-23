@@ -8,9 +8,20 @@ sxhkd &
 #bspc monitor HDMI-1-1 -d II III IV V VI VII VIII IX X
 #bspc desktop --focus II
 
-bspc monitor eDP-1 -d I
-bspc monitor HDMI-1 -d II III IV V VI VII VIII IX X
-bspc desktop --focus II
+if [ "$HOSTNAME" = "moon" ] ; then
+  bspc monitor eDP-1 -d I
+  bspc monitor HDMI-1 -d II III IV V VI VII VIII IX X
+  bspc desktop --focus II
+elif [ "$HOSTNAME" = "arch" ] ; then
+  bspc monitor eDP1 -d I
+  #bspc monitor HDMI1 -d II III IV V VI VII VIII IX X
+  bspc monitor DP1 -d II III IV V VI VII VIII IX X
+  bspc desktop --focus II
+else
+  bspc monitor eDP1 -d I
+  bspc monitor HDMI1 -d II III IV V VI VII VIII IX X
+  bspc desktop --focus II
+fi
 
 # bspc config active_border_color "#333333"
 
@@ -47,13 +58,13 @@ bspc config external_rules_command "$(which external_rules)"
 
 /usr/lib/notification-daemon-1.0/notification-daemon &
 
-/srv/http/meow.lan/socket &
+#/srv/http/meow.lan/socket &
 
 xcompmgr &
 
 compton &
 
-~/node-socket-app/index.js
+#~/node-socket-app/index.js
 
 #tint2 &
 
@@ -69,3 +80,33 @@ compton &
 
 #bspc monitor --focus last
 #bspc desktop --focus II
+
+if [ "$HOSTNAME" = "moon" ] ; then
+
+  xrandr --setprovideroutputsource modesetting NVIDIA-0
+  xrandr --auto
+  xrandr --output eDP1 --left-of HDMI1
+  xrandr --output HDMI1 --mode 1920x1080
+  xrandr --output HDMI1 --primary
+
+  bspc monitor eDP1 -d I
+  bspc monitor HDMI1 -d II III IV V VI VII VIII IX X
+  bspc desktop --focus II
+
+elif [ "$HOSTNAME" = "arch" ] ; then
+
+  xrandr --setprovideroutputsource modesetting NVIDIA-0
+  xrandr --auto
+  #xrandr --output eDP1 --left-of HDMI1
+  #xrandr --output HDMI1 --mode 1920x1080
+  #xrandr --output HDMI1 --primary
+  xrandr --output eDP1 --left-of DP1
+  xrandr --output DP1 --mode 1920x1080
+  xrandr --output DP1 --primary
+
+  bspc monitor eDP1 -d I
+  #bspc monitor HDMI1 -d II III IV V VI VII VIII IX X
+  bspc monitor DP1 -d II III IV V VI VII VIII IX X
+  bspc desktop --focus II
+
+fi

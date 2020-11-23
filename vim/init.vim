@@ -5,6 +5,9 @@ call plug#begin('~/.vim/plugged')
 "Plug 'captbaritone/better-indent-support-for-php-with-html'
 "Plug 'spf13/PIV'
 "Plug '2072/PHP-Indenting-for-VIm'
+
+Plug 'chiel92/vim-autoformat'
+
 Plug 'adelarsq/vim-matchit'
 Plug 'SirVer/ultisnips'
 Plug 'mxw/vim-jsx'
@@ -57,7 +60,9 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'othree/html5.vim'
 Plug 'elzr/vim-json'
-Plug 'Shougo/neocomplete.vim'
+
+"Plug 'Shougo/neocomplete.vim'
+
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-repeat'
 Plug 'mustache/vim-mustache-handlebars'
@@ -129,6 +134,7 @@ set incsearch
 set hlsearch 
 set splitbelow 
 set autoindent copyindent 
+set smartindent
 set wildmenu 
 "set relativenumber
 set nonumber
@@ -222,6 +228,8 @@ nmap ,cb :CtrlPBuffer <cr>
 
 " <checkpoint>
 
+let g:formatdef_tidy_xml = '"tidy -q -xml --show-errors 0 --show-warnings 0 --force-output --indent auto --indent-spaces 2 --vertical-space yes --tidy-mark no --indent-attributes yes --wrap-attributes yes"'
+
 "let g:vimwiki_url_maxsave=0
 "let g:vimwiki_url_maxsave=40
 let g:deoplete#enable_at_startup = 1
@@ -286,7 +294,6 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 
 " <checkpoint>
-
 
 au BufNewFile,BufRead *.env.default set filetype=sh syntax=sh
 au BufNewFile,BufRead *.mu set filetype=html.mustache syntax=mustache 

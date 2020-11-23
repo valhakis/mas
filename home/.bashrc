@@ -136,6 +136,8 @@ function make_ps1()
     local HOST="${green}\h${reset}"
   elif [ "$HOSTNAME" = "arch" ] ; then
     local RAXVX="SS"
+    local UNAME="${yellow}\u${reset}"
+    local HOST="${green}\h${reset}"
     # local UNAME="${red}hide${reset}"
   fi
 

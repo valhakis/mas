@@ -16,9 +16,19 @@ if [ "$HOSTNAME" = "moon" ] ; then
   xrandr --output HDMI1 --mode 1920x1080
   xrandr --output HDMI1 --primary
 
-elif [ "$HOSTNAME" = "vrch" ] ; then
+elif [ "$HOSTNAME" = "arch" ] ; then
 
   # SOMETHING SOMETHING
+  xrandr --auto
+  xrandr --setprovideroutputsource modesetting NVIDIA-0
+  xrandr --auto
+  #xrandr --output eDP1 --left-of HDMI1
+  #xrandr --output HDMI1 --mode 1920x1080
+  #xrandr --output HDMI1 --primary
+
+  xrandr --output eDP1 --left-of DP1
+  xrandr --output DP1 --mode 1920x1080
+  xrandr --output DP1 --primary
 
   echo "SOME TEXT"
 

@@ -12,9 +12,14 @@ if [ "$HOSTNAME" = "moon" ] ; then
   bspc monitor eDP-1 -d I
   bspc monitor HDMI-1 -d II III IV V VI VII VIII IX X
   bspc desktop --focus II
+elif [ "$HOSTNAME" = "arch" ] ; then
+  bspc monitor eDP1 -d I
+  #bspc monitor HDMI1 -d II III IV V VI VII VIII IX X
+  bspc monitor DP1 -d II III IV V VI VII VIII IX X
+  bspc desktop --focus II
 else
-  bspc monitor eDP-1 -d I
-  bspc monitor HDMI-1 -d II III IV V VI VII VIII IX X
+  bspc monitor eDP1 -d I
+  bspc monitor HDMI1 -d II III IV V VI VII VIII IX X
   bspc desktop --focus II
 fi
 
@@ -86,6 +91,22 @@ if [ "$HOSTNAME" = "moon" ] ; then
 
   bspc monitor eDP1 -d I
   bspc monitor HDMI1 -d II III IV V VI VII VIII IX X
+  bspc desktop --focus II
+
+elif [ "$HOSTNAME" = "arch" ] ; then
+
+  xrandr --setprovideroutputsource modesetting NVIDIA-0
+  xrandr --auto
+  #xrandr --output eDP1 --left-of HDMI1
+  #xrandr --output HDMI1 --mode 1920x1080
+  #xrandr --output HDMI1 --primary
+  xrandr --output eDP1 --left-of DP1
+  xrandr --output DP1 --mode 1920x1080
+  xrandr --output DP1 --primary
+
+  bspc monitor eDP1 -d I
+  #bspc monitor HDMI1 -d II III IV V VI VII VIII IX X
+  bspc monitor DP1 -d II III IV V VI VII VIII IX X
   bspc desktop --focus II
 
 fi

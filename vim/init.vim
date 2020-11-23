@@ -12,7 +12,7 @@ Plug 'vim-scripts/loremipsum'
 Plug 'makerj/vim-pdf'
 Plug 'phpactor/phpactor'
 
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 
 Plug 'Yggdroot/indentLine'
 
@@ -61,6 +61,11 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-repeat'
 Plug 'mustache/vim-mustache-handlebars'
+
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
 Plug 'ryanoasis/vim-devicons'
 "Plug 'evidens/vim-twig'
 Plug 'lumiliet/vim-twig'
@@ -219,6 +224,7 @@ nmap ,cb :CtrlPBuffer <cr>
 
 "let g:vimwiki_url_maxsave=0
 "let g:vimwiki_url_maxsave=40
+let g:deoplete#enable_at_startup = 1
 let s:mycolors = [
       \ 'badwolf', 
       \ 'molokai', 

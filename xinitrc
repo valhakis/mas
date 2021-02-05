@@ -43,8 +43,10 @@ fi
 xdg-mime default pcmanfm.desktop inode/directory
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
-xdg-mime default feh.desktop image/png
-xdg-mime default feh.desktop image/jpeg
+#xdg-mime default feh.desktop image/png
+#xdg-mime default feh.desktop image/jpeg
+xdg-mime default sxiv.desktop image/png
+xdg-mime default sxiv.desktop image/jpeg
 
 setxkbmap ee us
 

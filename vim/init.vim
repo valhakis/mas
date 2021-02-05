@@ -61,15 +61,15 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'othree/html5.vim'
 Plug 'elzr/vim-json'
 
-"Plug 'Shougo/neocomplete.vim'
-
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-repeat'
 Plug 'mustache/vim-mustache-handlebars'
 
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'Shougo/neocomplete.vim'
+
+"Plug 'Shougo/deoplete.nvim'
+"Plug 'roxma/nvim-yarp'
+"Plug 'roxma/vim-hug-neovim-rpc'
 
 Plug 'ryanoasis/vim-devicons'
 "Plug 'evidens/vim-twig'
